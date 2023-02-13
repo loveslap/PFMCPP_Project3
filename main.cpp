@@ -431,6 +431,7 @@ MOVE THEM to the space below this block comment and put them in numerical order
     simply CUT and PASTE them in the space provided below:
 */
 
+/*
 Thing 1)  Vending Machine
 5 properties:
     1)  number of cokes (int)
@@ -550,7 +551,7 @@ Thing 10) Government
     2)  Levy Tax
     3)  Propagandize Citizens
 
-
+*/
 
 /*
 =================
