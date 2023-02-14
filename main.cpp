@@ -1110,229 +1110,7 @@ struct CarWash
     void detailInterior();
 };
 
-struct VendingMachine
-{
-// 5 properties:
-//     1)  number of cokes (int)
-    int numCokes = 33;
-//     2)  number of mountain dews (int)
-    int numMountainDews = 14;
-//     3)  number of quarters (int)
-    int numQuarters = 44;
-//     4)  number of dimes (int)
-    int numDimes = 22;
-//     5)  number of nickels (int)
-    int numNickels = 3;
-// 3 things it can do:
-//     1)  deliver soda
-    void deliverSode(int sodaCode);
-//     2)  make change
-    void makeChange(int sodaCode, int payment);
-//     3)   display price
-    void displayPrice(int sodaCode);
-};
 
-struct BattleTank
-{
-//     1) fuel supply  (float)
-    float fuelSupply = 0.833f;
-//     2) bullet supply (int)
-    int bulletSupply = 3553;
-//     3) turret angle (float)
-    float turretAngle = 0.223f;
-//     4)  grenade supply (int)
-    int grenadeSupply = 23;
-//     5)  number of operators (int)
-    int numOperators = 3;
-// 3 things it can do:
-//     1)  aim turret
-    void aimTurret(float angle);
-//     2)  fire bullets
-    bool firebullets(int numBullets);
-// returns false if not enough bullets
-//     3)  launch grenades
-    bool launchGrenades(int numGrenades);
-// returns false if not enough grenades
-};
-
-struct DigitalCamera
-{
-// 5 properties:
-//     1)   light level (float)
-    float lightLevel = 2.455f;
-//     2)   available storage (int)
-    int availableStorage = 234235;
-//     3)   zoom degree (float)
-    float zoomDegree = 2.5334f;
-//     4)   horizontal resolution (int)
-    int horizontalResolution = 1024;
-//     5)   vertical resolution (int)
-    int verticalResolution = 768;
-// 3 things it can do:
-//     1)   set zoom
-    void setZoom(float degree);
-//     2)   take picture
-    int takePicture(); // returns picture number
-//     3)   delete picture
-    void deletePicture(int pictNum);
-};
-
-struct Submarine
-{
-// 5 properties:
-//     1)  depth (float)
-    float depth = 203.33f;
-//     2)  heading (float)
-    float heading = 0.67f;
-//     3)  water pressure (float)
-    float waterPressure = 22.44f;
-//     4)  number of shipmen (int)
-    int numShipmen = 44;
-//     5)  number of torpedos (int)
-    int numTorpedos = 55;
-// 3 things it can do:
-//     1)  set depth
-    void setDepth(float chosenDepth);
-//     2)  set direction
-    void setDirection(float chosenHeading);
-//     3)  fire torpedo
-    bool fireTorpedo();
-// returns false if no torpedo present
-};
-
-struct ExecutiveBranch 
-{
-// 5 properties:
-//     1)  Name of President (std::string)
-    std::string nameOfPresident = "Bob";
-//     2)  Number of secret service (int)
-    int numSecretService = 23;
-//     3)  Location of President (std::string)
-    std::string locationPresident = "White House";
-//     4)  Nuclear Suitcase code (int)
-    int nukeSuitcaseCode = 8675309;
-//     5)  Days remaining in office. (int)
-    int daysRemainingInOffice = 245;
-// 3 things it can do:
-//     1)  Enact excecutive order
-    void enactExecutiveOrder(int orderNumber, std::string orderText);
-//     2)  Give a speech
-    void giveSpeech(std::string speechText);
-//     3)  Initiate covert ops
-    void initiateOps(std::string  details);
-};
-
-struct LegislativeBranch
-{
-// 5 properties:
-//     1) Number of Lefties (int)
-    int numLefties = 203;
-//     2) Number of righties (int)
-    int numRighties = 202;
-//     3) Current bill under consideration (int)
-    int currentBill = 2245;
-//     4) Hours remaining for debate (int)
-    int debateHoursRemaining = 4;
-//     5) Currently in session (bool)
-    bool inSession = true;
-// 3 things it can do:
-//     1) Vote on bill.
-    int voteOnBill(); // returns number of yeses
-//     2) Debate bill. 
-    void debateBill();
-//     3) Trade stocks.
-    void tradeStocks();
-};
-
-struct JudicialBranch
-{
-// 5 properties:
-//     1) Number of cases on docket (int)
-    int numCases = 45;
-//     2) Days remaining in current session (int)
-    int daysRemainingInSession = 55;
-//     3) Current case number (int)
-    int currentCaseNumber = 45623;
-//     4) Next Case number (int)
-    int nextCaseNumber = 45636;
-//     5) Currently in session (bool)
-    bool inSession = true;
-// 3 things it can do:
-//     1)  Judge case
-    bool judgeCase(); // true with judge sides with plantiff
-//     2)  Remand case to lower court
-    void remandCase();
-//     3)  Listen to testimony
-    void listenTestimony();
-};
-
-struct Army
-{
-// 5 properties:
-//     1)  Number of officers (int)
-    int numOfficers = 4435;
-//     2)  Number of soldiers (int)
-    int numSoldiers = 434534;
-//     3)  Soldier morale rating (float)
-    float soldierMorale = 0.8873f;
-//     4)  Number of tanks (int)
-    int numTanks = 3345;
-//     5)  Number of bullets (int)
-    int numBullets = 3453453;
-// 3 things it can do:
-//     1)  Develop attack plans
-    void developPlans();
-//     2)  Invade country
-    void invadeCountry(std::string country);
-//     3)  Clean Barracks
-    void cleanBarracks();
-};
-
-struct DeepState
-{
-// 5 properties:
-//     1)  Numnber of embedded bureacrats (int)
-    int numEmbeddedBureaucrats = 25455;
-//     2)  Number of embedded journalists (int)
-    int numEmbeddedJournalists = 245;
-//  `  3)  Percentage of comprimised politicians (float)
-    float percentageComprimisedPoliticians = 33.65f;
-//     4)  Secret codeword (std::string)
-    std::string secretCodeword = "Smurf";
-//     5)  Sacred Number (int)
-    int sacredNumber = 88;
-// 3 things it can do:
-//     1)  Coerce legislators
-    void coerceLegislators();
-//     2)  Engineer narrative
-    void engineerNArrative();
-//     3)  Supress information
-    void suppressInformation();
-};
-
-
-
-struct Government
-{
-// 5 properties:
-//     1) Executive Branch
-    void ExecutiveBranch();
-//     2) Legislative Branch
-    void LegislativeBranch();
-//     3) Judicial Branch
-    void JudicialBranch();
-//     4) Army 
-    void Army();
-//     5) Deep State
-    void DeepState();
-// 3 things it can do:
-//     1)  Go to war
-    void goToWar(std::string enemy);
-//     2)  Levy Tax
-    void levyTax(int amount);
-//     3)  Propagandize Citizens
-    void propagandizeCitizens(std::string narrative);
-};
 /*
 =================
 Part 1e - Step 8: Commit
@@ -1583,6 +1361,157 @@ struct CarWash
 
     Keep this in mind when you define your UDTs in this project part.
     */
+
+};
+/*
+=================
+Part 1e - Step 12: Commit
+=================
+Now that you've made changes, make a commit!
+Be sure to make the commit message meaningful.
+*/
+} //end namespace Part1E_Step11
+
+namespace Part1E_Step13
+{
+/*
+=================
+Part 1e - Step 13: Assignment
+================= 
+6) your 10th UDT's properties should be instances of your #5-#9 UDTs.   
+    - No primitives allowed!
+    - see the example below, which uses the 10th UDT example from Part 1C
+    note: the example UDTs 5-9 below are empty, solely for the purpose of keeping the example easy to understand
+ */
+
+
+struct Display  //UDT 5
+{ 
+    /* empty just to make the example easy to follow */ 
+};
+struct Memory       { }; //UDT 6
+struct CPU          { }; //UDT 7
+struct Radio        { }; //UDT 8
+struct Applications { }; //UDT 9
+
+//UDT 10, from Part 1c example
+struct CellPhone
+{   
+    Display display;            //a member variabledeclaration of an instance of UDT 5
+    Memory memory;              //a member variabledeclaration of an instance of UDT 6
+    CPU cpu;                    //a member variabledeclaration of an instance of UDT 7
+    Radio radio;                //a member variabledeclaration of an instance of UDT 8
+    Applications applications;  //a member variabledeclaration of an instance of UDT 9
+
+    bool makeACall(std::string number); //returns true if the call connected
+    bool sendAText(std::string number, std::string messageToSend); //returns true if the text was sent
+    int runApplication(std::string applicationName); //returns how much memory (bytes) the application asked for
+};
+ /*
+=================
+Part 1e - Step 14: Commit
+=================
+Now that you've made changes, make a commit!
+Be sure to make the commit message meaningful.
+*/
+} // end namespace Part1E_Step13
+ /*
+ =================
+Part 1e - Step 15: Assignment
+=================
+7) After you finish defining each type, click the [run] button.  
+    Clear up any errors or warnings as best you can. 
+    if your code produces a [-Wpadded] warning, add '-Wno-padded' to the .replit file with the other compiler flags (-Weverything -Wno-missing-prototypes etc etc)
+ */
+struct ExecutiveBranch {};
+struct LegislativeBranch {};
+struct JudicialBranch {};
+struct Army{};
+struct DeepState {};
+
+/*
+=================
+Part 1e - Step 16: Commit
+=================
+Now that you've made changes, make a commit!
+Be sure to make the commit message meaningful.
+*/
+
+/*
+=================
+Part 1e - Step 17: Move your finished UDTs
+=================
+MOVE your 10 UDTs to the blank space below step 19 by cutting/pasting
+Re-run your project to make sure everything compiles without errors or warnings.
+Fix anything that needs fixing
+
+You should see "good to go" in the program output
+*/
+
+/*
+=================
+Part 1e - Step 18: Commit
+=================
+Now that you've made changes, make a commit!
+Be sure to make the commit message meaningful.
+*/
+
+/*
+=================
+Part 1e - Step 19: Request a review
+=================
+*/
+} //end namespace Part1E_Instructions
+
+/*
+paste your code below
+*/
+
+struct VendingMachine
+{
+// 5 properties:
+//     1)  number of cokes (int)
+    int numCokes = 33;
+//     2)  number of mountain dews (int)
+    int numMountainDews = 14;
+//     3)  number of quarters (int)
+    int numQuarters = 44;
+//     4)  number of dimes (int)
+    int numDimes = 22;
+//     5)  number of nickels (int)
+    int numNickels = 3;
+// 3 things it can do:
+//     1)  deliver soda
+    void deliverSode(int sodaCode);
+//     2)  make change
+    void makeChange(int sodaCode, int payment);
+//     3)   display price
+    void displayPrice(int sodaCode);
+};
+
+struct BattleTank
+{
+//     1) fuel supply  (float)
+    float fuelSupply = 0.833f;
+//     2) bullet supply (int)
+    int bulletSupply = 3553;
+//     3) turret angle (float)
+    float turretAngle = 0.223f;
+//     4)  grenade supply (int)
+    int grenadeSupply = 23;
+//     5)  number of operators (int)
+    int numOperators = 3;
+// 3 things it can do:
+//     1)  aim turret
+    void aimTurret(float angle);
+//     2)  fire bullets
+    bool firebullets(int numBullets);
+// returns false if not enough bullets
+//     3)  launch grenades
+    bool launchGrenades(int numGrenades);
+// returns false if not enough grenades
+};
+
 struct DigitalCamera
 {
 // 5 properties:
@@ -1654,72 +1583,117 @@ struct Submarine
     void setVelocity(int velocity, Motor theMotor);
 // returns false if no torpedo present
 };
-};
-/*
-=================
-Part 1e - Step 12: Commit
-=================
-Now that you've made changes, make a commit!
-Be sure to make the commit message meaningful.
-*/
-} //end namespace Part1E_Step11
 
-namespace Part1E_Step13
+struct ExecutiveBranch 
 {
-/*
-=================
-Part 1e - Step 13: Assignment
-================= 
-6) your 10th UDT's properties should be instances of your #5-#9 UDTs.   
-    - No primitives allowed!
-    - see the example below, which uses the 10th UDT example from Part 1C
-    note: the example UDTs 5-9 below are empty, solely for the purpose of keeping the example easy to understand
- */
-
-
-struct Display  //UDT 5
-{ 
-    /* empty just to make the example easy to follow */ 
+// 5 properties:
+//     1)  Name of President (std::string)
+    std::string nameOfPresident = "Bob";
+//     2)  Number of secret service (int)
+    int numSecretService = 23;
+//     3)  Location of President (std::string)
+    std::string locationPresident = "White House";
+//     4)  Nuclear Suitcase code (int)
+    int nukeSuitcaseCode = 8675309;
+//     5)  Days remaining in office. (int)
+    int daysRemainingInOffice = 245;
+// 3 things it can do:
+//     1)  Enact excecutive order
+    void enactExecutiveOrder(int orderNumber, std::string orderText);
+//     2)  Give a speech
+    void giveSpeech(std::string speechText);
+//     3)  Initiate covert ops
+    void initiateOps(std::string  details);
 };
-struct Memory       { }; //UDT 6
-struct CPU          { }; //UDT 7
-struct Radio        { }; //UDT 8
-struct Applications { }; //UDT 9
 
-//UDT 10, from Part 1c example
-struct CellPhone
-{   
-    Display display;            //a member variabledeclaration of an instance of UDT 5
-    Memory memory;              //a member variabledeclaration of an instance of UDT 6
-    CPU cpu;                    //a member variabledeclaration of an instance of UDT 7
-    Radio radio;                //a member variabledeclaration of an instance of UDT 8
-    Applications applications;  //a member variabledeclaration of an instance of UDT 9
-
-    bool makeACall(std::string number); //returns true if the call connected
-    bool sendAText(std::string number, std::string messageToSend); //returns true if the text was sent
-    int runApplication(std::string applicationName); //returns how much memory (bytes) the application asked for
+struct LegislativeBranch
+{
+// 5 properties:
+//     1) Number of Lefties (int)
+    int numLefties = 203;
+//     2) Number of righties (int)
+    int numRighties = 202;
+//     3) Current bill under consideration (int)
+    int currentBill = 2245;
+//     4) Hours remaining for debate (int)
+    int debateHoursRemaining = 4;
+//     5) Currently in session (bool)
+    bool inSession = true;
+// 3 things it can do:
+//     1) Vote on bill.
+    int voteOnBill(); // returns number of yeses
+//     2) Debate bill. 
+    void debateBill();
+//     3) Trade stocks.
+    void tradeStocks();
 };
- /*
-=================
-Part 1e - Step 14: Commit
-=================
-Now that you've made changes, make a commit!
-Be sure to make the commit message meaningful.
-*/
-} // end namespace Part1E_Step13
- /*
- =================
-Part 1e - Step 15: Assignment
-=================
-7) After you finish defining each type, click the [run] button.  
-    Clear up any errors or warnings as best you can. 
-    if your code produces a [-Wpadded] warning, add '-Wno-padded' to the .replit file with the other compiler flags (-Weverything -Wno-missing-prototypes etc etc)
- */
-struct ExecutiveBranch {};
-struct LegislativeBranch {};
-struct JudicialBranch {};
-struct Army{};
-struct DeepState {};
+
+struct JudicialBranch
+{
+// 5 properties:
+//     1) Number of cases on docket (int)
+    int numCases = 45;
+//     2) Days remaining in current session (int)
+    int daysRemainingInSession = 55;
+//     3) Current case number (int)
+    int currentCaseNumber = 45623;
+//     4) Next Case number (int)
+    int nextCaseNumber = 45636;
+//     5) Currently in session (bool)
+    bool inSession = true;
+// 3 things it can do:
+//     1)  Judge case
+    bool judgeCase(); // true with judge sides with plantiff
+//     2)  Remand case to lower court
+    void remandCase();
+//     3)  Listen to testimony
+    void listenTestimony();
+};
+
+struct Army
+{
+// 5 properties:
+//     1)  Number of officers (int)
+    int numOfficers = 4435;
+//     2)  Number of soldiers (int)
+    int numSoldiers = 434534;
+//     3)  Soldier morale rating (float)
+    float soldierMorale = 0.8873f;
+//     4)  Number of tanks (int)
+    int numTanks = 3345;
+//     5)  Number of bullets (int)
+    int numBullets = 3453453;
+// 3 things it can do:
+//     1)  Develop attack plans
+    void developPlans();
+//     2)  Invade country
+    void invadeCountry(std::string country);
+//     3)  Clean Barracks
+    void cleanBarracks();
+};
+
+struct DeepState
+{
+// 5 properties:
+//     1)  Numnber of embedded bureacrats (int)
+    int numEmbeddedBureaucrats = 25455;
+//     2)  Number of embedded journalists (int)
+    int numEmbeddedJournalists = 245;
+//  `  3)  Percentage of comprimised politicians (float)
+    float percentageComprimisedPoliticians = 33.65f;
+//     4)  Secret codeword (std::string)
+    std::string secretCodeword = "Smurf";
+//     5)  Sacred Number (int)
+    int sacredNumber = 88;
+// 3 things it can do:
+//     1)  Coerce legislators
+    void coerceLegislators();
+//     2)  Engineer narrative
+    void engineerNArrative();
+//     3)  Supress information
+    void suppressInformation();
+};
+
 struct Government
 
 {
@@ -1742,46 +1716,6 @@ struct Government
 //     3)  Propagandize Citizens
     void propagandizeCitizens(std::string narrative);
 };
-/*
-=================
-Part 1e - Step 16: Commit
-=================
-Now that you've made changes, make a commit!
-Be sure to make the commit message meaningful.
-*/
-
-/*
-=================
-Part 1e - Step 17: Move your finished UDTs
-=================
-MOVE your 10 UDTs to the blank space below step 19 by cutting/pasting
-Re-run your project to make sure everything compiles without errors or warnings.
-Fix anything that needs fixing
-
-You should see "good to go" in the program output
-*/
-
-/*
-=================
-Part 1e - Step 18: Commit
-=================
-Now that you've made changes, make a commit!
-Be sure to make the commit message meaningful.
-*/
-
-/*
-=================
-Part 1e - Step 19: Request a review
-=================
-*/
-} //end namespace Part1E_Instructions
-
-/*
-paste your code below
-*/
-
-
-
 
 
 
