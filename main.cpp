@@ -1581,6 +1581,77 @@ struct CarWash
 
     Keep this in mind when you define your UDTs in this project part.
     */
+struct DigitalCamera
+{
+// 5 properties:
+//     1)   light level (float)
+    float lightLevel = 2.455f;
+//     2)   available storage (int)
+    int availableStorage = 234235;
+//     3)   zoom degree (float)
+    float zoomDegree = 2.5334f;
+//     4)   horizontal resolution (int)
+    int horizontalResolution = 1024;
+//     5)   vertical resolution (int)
+    int verticalResolution = 768;
+// here is the nested UDT
+    struct MemoryCard {
+        bool isFull = false;
+        bool isLocked = false;
+        std::string cardname = "Untitled";
+        int capacity = 1048576;
+        int memoryAddress = 0;
+
+        void storePicture(std::string Picture);
+        void setLock(bool lock);
+        std::string getPicture(int address);
+        
+    };
+// 3 things it can do:
+//     1)   set zoom
+    void setZoom(float degree);
+//     2)   take picture
+    int takePicture(MemoryCard memCard); // returns picture number
+//     3)   delete picture
+    void deletePicture(int pictNum, MemoryCard memCard);
+};
+
+struct Submarine
+{
+// 5 properties:
+//     1)  depth (float)
+    float depth = 203.33f;
+//     2)  heading (float)
+    float heading = 0.67f;
+//     3)  water pressure (float)
+    float waterPressure = 22.44f;
+//     4)  number of shipmen (int)
+    int numShipmen = 44;
+//     5)  number of torpedos (int)
+    int numTorpedos = 55;
+
+    struct Motor {
+        std::string manufacturer = "RollsRoyce";
+        std::string model = "Submaster 3000";
+        int rpm = 0;
+        bool isReady = true;
+        int voltage = 220;
+
+        // 3 things it can do
+        void goOnline();
+        void goOffline();
+        bool setSpeed(int velocity);
+    };
+// 3 things it can do:
+//     1)  set depth
+    void setDepth(float chosenDepth);
+//     2)  set direction
+    void setDirection(float chosenHeading);
+//     3)  fire torpedo
+    bool fireTorpedo();
+    void setVelocity(int velocity, Motor theMotor);
+// returns false if no torpedo present
+};
 };
 /*
 =================
