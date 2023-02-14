@@ -1310,19 +1310,21 @@ struct DeepState
     void suppressInformation();
 };
 
+
+
 struct Government
 {
 // 5 properties:
 //     1) Executive Branch
-    void executiveBranch();
+    void ExecutiveBranch();
 //     2) Legislative Branch
-    void legislativeBranch();
+    void LegislativeBranch();
 //     3) Judicial Branch
-    void judicialBranch();
+    void JudicialBranch();
 //     4) Army 
-    void army();
+    void Army();
 //     5) Deep State
-    void deepState();
+    void DeepState();
 // 3 things it can do:
 //     1)  Go to war
     void goToWar(std::string enemy);
@@ -1713,7 +1715,33 @@ Part 1e - Step 15: Assignment
     Clear up any errors or warnings as best you can. 
     if your code produces a [-Wpadded] warning, add '-Wno-padded' to the .replit file with the other compiler flags (-Weverything -Wno-missing-prototypes etc etc)
  */
+struct ExecutiveBranch {};
+struct LegislativeBranch {};
+struct JudicialBranch {};
+struct Army{};
+struct DeepState {};
+struct Government
 
+{
+// 5 properties:
+//     1) Executive Branch
+    ExecutiveBranch execBranch;
+//     2) Legislative Branch
+    LegislativeBranch legBranch;
+//     3) Judicial Branch
+   JudicialBranch judBranch;
+//     4) Army 
+    Army army;
+//     5) Deep State
+    DeepState deepState;
+// 3 things it can do:
+//     1)  Go to war
+    void goToWar(std::string enemy);
+//     2)  Levy Tax
+    void levyTax(int amount);
+//     3)  Propagandize Citizens
+    void propagandizeCitizens(std::string narrative);
+};
 /*
 =================
 Part 1e - Step 16: Commit
