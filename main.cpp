@@ -1269,7 +1269,7 @@ struct DigitalCamera
 //     5)   vertical resolution (int)
     int verticalResolution = 768;
 // here is the nested UDT
-    struct MemoryCard {
+    struct MemoryCard {  FIXME: Curly braces go on their own line with no other code
         bool isFull = false;
         bool isLocked = false;
         std::string cardname = "Untitled";
@@ -1304,7 +1304,7 @@ struct Submarine
 //     5)  number of torpedos (int)
     int numTorpedos = 55;
 
-    struct Motor {
+    struct Motor {  FIXME: Curly braces go on their own line with no other code
         std::string manufacturer = "RollsRoyce";
         std::string model = "Submaster 3000";
         int rpm = 0;
