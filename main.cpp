@@ -619,55 +619,7 @@ struct CarWash  //This is the empty struct, below my plain-English UDT.
 /*
 Notice that the struct name 'CarWash' conforms with the Course Coding Standard, described in the Readme.MD
 */
-struct VendingMachine FIXME: remove this
-{
 
-};
-
-struct BattleTank FIXME: remove this
-{
-
-};
-
-struct DigitalCamera FIXME: remove this
-{
-
-};
-
-struct Submarine FIXME: remove this
-{
-
-};
-
-struct ExecutiveBranch  FIXME: remove this
-{
-
-};
-
-struct LegislativeBranch FIXME: remove this
-{
-
-};
-
-struct JudicialBranch FIXME: remove this
-{
-
-};
-
-struct Army FIXME: remove this
-{
-
-};
-
-struct DeepState FIXME: remove this
-{
-
-};
-
-struct Government FIXME: remove this
-{
-
-};
 
 /*
 =================
@@ -690,157 +642,6 @@ Part 1e - Step 3: Assignment
     - Do this for all 10 UDTs
     */
 
-struct CarWash  FIXME: remove this
-{
-    //5 properties:
-    //    - number of vacuum cleaners
-    //    - number of eco-friendly cleaning supplies
-    //    - stores the amount of water used per week.
-    //    - stores amount of profit made per week
-    //    - number of cars serviced per day
-    //3 things it can do:
-    //    - wash and wax car
-    //    - charge customer
-    //    - detail the car interior
-};
-struct VendingMachine FIXME: remove this
-{
-// 5 properties:
-//     1)  number of cokes (int)
-//     2)  number of mountain dews (int)
-//     3)  number of quarters (int)
-//     4)  number of dimes (int)
-//     5)  number of nickels (int)
-// 3 things it can do:
-//     1)  deliver soda
-//     2)  make change
-//     3)   display price
-};
-
-struct BattleTank FIXME: remove this
-{
-//     1) fuel supply  (float)
-//     2) bullet supply (int)
-//     3) turret angle (float)
-//     4)  grenade supply (int)
-//     5)  number of operators (int)
-// 3 things it can do:
-//     1)  aim turret
-//     2)  fire bullets
-//     3)  launch grenades
-};
-
-struct DigitalCamera FIXME: remove this
-{
-// 5 properties:
-//     1)   light level (float)
-//     2)   available storage (int)
-//     3)   zoom degree (float)
-//     4)   horizontal resolution (int)
-//     5)   vertical resolution (int)
-// 3 things it can do:
-//     1)   set zoom
-//     2)   take picture
-//     3)   delete picture
-};
-
-struct Submarine FIXME: remove this
-{
-// 5 properties:
-//     1)  depth (float)
-//     2)  heading (float)
-//     3)  water pressure (float)
-//     4)  number of shipmen (int)
-//     5)  number of torpedos (int)
-// 3 things it can do:
-//     1)  set depth
-//     2)  set direction
-//     3)  fire torpedo
-};
-
-struct ExecutiveBranch  FIXME: remove this
-{
-// 5 properties:
-//     1)  Name of President (std::string)
-//     2)  Number of secret service (int)
-//     3)  Location of President (std::string)
-//     4)  Nuclear Suitcase code (int)
-//     5)  Days remaining in office. (int)
-// 3 things it can do:
-//     1)  Enact excecutive order
-//     2)  Give a speech
-//     3)  Initiate covert ops
-};
-
-struct LegislativeBranch FIXME: remove this
-{
-// 5 properties:
-//     1) Number of Lefties (int)
-//     2) Number of righties (int)
-//     3) Current bill under consideration (int)
-//     4) Hours remaining for debate (int)
-//     5) Currently in session (bool)
-// 3 things it can do:
-//     1) Vote on bill.
-//     2) Debate bill. 
-//     3) Trade stocks.
-};
-
-struct JudicialBranch FIXME: remove this
-{
-// 5 properties:
-//     1) Number of cases on docket (int)
-//     2) Days remaining in current session (int)
-//     3) Current case number (int)
-//     4) Next Case number (int)
-//     5) Currently in session (bool)
-// 3 things it can do:
-//     1)  Judge case
-//     2)  Remand case to lower court
-//     3)  Listen to testimony
-};
-
-struct Army FIXME: remove this
-{
-// 5 properties:
-//     1)  Number of officers (int)
-//     2)  Number of soldiers (int)
-//     3)  Soldier morale rating (float)
-//     4)  Number of tanks (int)
-//     5)  Number of bullets (int)
-// 3 things it can do:
-//     1)  Develop attack plans
-//     2)  Invade country
-//     3)  Clean Barracks
-};
-
-struct DeepState FIXME: remove this
-{
-// 5 properties:
-//     1)  Numnber of embedded bureacrats (int)
-//     2)  Number of embedded journalists (int)
-//  `  3)  Percentage of comprimised politicians (float)
-//     4)  Secret codeword (std::string)
-//     5)  Sacred Number (int)
-// 3 things it can do:
-//     1)  Coerce legislators
-//     2)  Engineer narrative
-//     3)  Supress information
-};
-
-struct Government FIXME: remove this
-{
-// 5 properties:
-//     1) Executive Branch
-//     2) Legislative Branch
-//     3) Judicial Branch
-//     4) Army 
-//     5) Deep State
-// 3 things it can do:
-//     1)  Go to war
-//     2)  Levy Tax
-//     3)  Propagandize Citizens
-};
 
 /*
 =================
@@ -1166,11 +967,6 @@ Part 1e - Step 15: Assignment
     Clear up any errors or warnings as best you can. 
     if your code produces a [-Wpadded] warning, add '-Wno-padded' to the .replit file with the other compiler flags (-Weverything -Wno-missing-prototypes etc etc)
  */
-struct ExecutiveBranch {}; FIXME: remove this
-struct LegislativeBranch {}; FIXME: remove this
-struct JudicialBranch {}; FIXME: remove this
-struct Army{}; FIXME: remove this
-struct DeepState {}; FIXME: remove this
 
 /*
 =================
@@ -1269,7 +1065,8 @@ struct DigitalCamera
 //     5)   vertical resolution (int)
     int verticalResolution = 768;
 // here is the nested UDT
-    struct MemoryCard {  FIXME: Curly braces go on their own line with no other code
+    struct MemoryCard
+{ 
         bool isFull = false;
         bool isLocked = false;
         std::string cardname = "Untitled";
@@ -1304,7 +1101,8 @@ struct Submarine
 //     5)  number of torpedos (int)
     int numTorpedos = 55;
 
-    struct Motor {  FIXME: Curly braces go on their own line with no other code
+    struct Motor 
+    { 
         std::string manufacturer = "RollsRoyce";
         std::string model = "Submaster 3000";
         int rpm = 0;
