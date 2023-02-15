@@ -619,52 +619,52 @@ struct CarWash  //This is the empty struct, below my plain-English UDT.
 /*
 Notice that the struct name 'CarWash' conforms with the Course Coding Standard, described in the Readme.MD
 */
-struct VendingMachine
+struct VendingMachine FIXME: remove this
 {
 
 };
 
-struct BattleTank
+struct BattleTank FIXME: remove this
 {
 
 };
 
-struct DigitalCamera
+struct DigitalCamera FIXME: remove this
 {
 
 };
 
-struct Submarine
+struct Submarine FIXME: remove this
 {
 
 };
 
-struct ExecutiveBranch 
+struct ExecutiveBranch  FIXME: remove this
 {
 
 };
 
-struct LegislativeBranch
+struct LegislativeBranch FIXME: remove this
 {
 
 };
 
-struct JudicialBranch
+struct JudicialBranch FIXME: remove this
 {
 
 };
 
-struct Army
+struct Army FIXME: remove this
 {
 
 };
 
-struct DeepState
+struct DeepState FIXME: remove this
 {
 
 };
 
-struct Government
+struct Government FIXME: remove this
 {
 
 };
@@ -690,7 +690,7 @@ Part 1e - Step 3: Assignment
     - Do this for all 10 UDTs
     */
 
-struct CarWash 
+struct CarWash  FIXME: remove this
 {
     //5 properties:
     //    - number of vacuum cleaners
@@ -703,7 +703,7 @@ struct CarWash
     //    - charge customer
     //    - detail the car interior
 };
-struct VendingMachine
+struct VendingMachine FIXME: remove this
 {
 // 5 properties:
 //     1)  number of cokes (int)
@@ -717,7 +717,7 @@ struct VendingMachine
 //     3)   display price
 };
 
-struct BattleTank
+struct BattleTank FIXME: remove this
 {
 //     1) fuel supply  (float)
 //     2) bullet supply (int)
@@ -730,7 +730,7 @@ struct BattleTank
 //     3)  launch grenades
 };
 
-struct DigitalCamera
+struct DigitalCamera FIXME: remove this
 {
 // 5 properties:
 //     1)   light level (float)
@@ -744,7 +744,7 @@ struct DigitalCamera
 //     3)   delete picture
 };
 
-struct Submarine
+struct Submarine FIXME: remove this
 {
 // 5 properties:
 //     1)  depth (float)
@@ -758,7 +758,7 @@ struct Submarine
 //     3)  fire torpedo
 };
 
-struct ExecutiveBranch 
+struct ExecutiveBranch  FIXME: remove this
 {
 // 5 properties:
 //     1)  Name of President (std::string)
@@ -772,7 +772,7 @@ struct ExecutiveBranch
 //     3)  Initiate covert ops
 };
 
-struct LegislativeBranch
+struct LegislativeBranch FIXME: remove this
 {
 // 5 properties:
 //     1) Number of Lefties (int)
@@ -786,7 +786,7 @@ struct LegislativeBranch
 //     3) Trade stocks.
 };
 
-struct JudicialBranch
+struct JudicialBranch FIXME: remove this
 {
 // 5 properties:
 //     1) Number of cases on docket (int)
@@ -800,7 +800,7 @@ struct JudicialBranch
 //     3)  Listen to testimony
 };
 
-struct Army
+struct Army FIXME: remove this
 {
 // 5 properties:
 //     1)  Number of officers (int)
@@ -814,7 +814,7 @@ struct Army
 //     3)  Clean Barracks
 };
 
-struct DeepState
+struct DeepState FIXME: remove this
 {
 // 5 properties:
 //     1)  Numnber of embedded bureacrats (int)
@@ -828,7 +828,7 @@ struct DeepState
 //     3)  Supress information
 };
 
-struct Government
+struct Government FIXME: remove this
 {
 // 5 properties:
 //     1) Executive Branch
@@ -1166,11 +1166,11 @@ Part 1e - Step 15: Assignment
     Clear up any errors or warnings as best you can. 
     if your code produces a [-Wpadded] warning, add '-Wno-padded' to the .replit file with the other compiler flags (-Weverything -Wno-missing-prototypes etc etc)
  */
-struct ExecutiveBranch {};
-struct LegislativeBranch {};
-struct JudicialBranch {};
-struct Army{};
-struct DeepState {};
+struct ExecutiveBranch {}; FIXME: remove this
+struct LegislativeBranch {}; FIXME: remove this
+struct JudicialBranch {}; FIXME: remove this
+struct Army{}; FIXME: remove this
+struct DeepState {}; FIXME: remove this
 
 /*
 =================
@@ -1446,7 +1446,7 @@ struct Government
 //     2) Legislative Branch
     LegislativeBranch legBranch;
 //     3) Judicial Branch
-   JudicialBranch judBranch;
+    JudicialBranch judBranch;
 //     4) Army 
     Army army;
 //     5) Deep State
@@ -1459,9 +1459,6 @@ struct Government
 //     3)  Propagandize Citizens
     void propagandizeCitizens(std::string narrative);
 };
-
-
-
 
 
 
