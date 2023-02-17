@@ -36,7 +36,7 @@ Part1 will be broken up into 5 sub-parts, all on the same branch.
 ************************************ PART 1A ************************************
 *********************************************************************************
 */
-
+ 
 /*
 =================
 Setup - Assignment:
@@ -83,51 +83,51 @@ Main Object: Car Interior
         Name 4 nouns you'll find on the [Sub Object]
             1) paddle shifters
             2) 'cruise control' controls
-            3) 
-            4) 
+            3)  horn button
+            4) phone button
         Name 2 actions that the [Sub Object] can do:
             1) adjust cruise control settings.
-            2)
+            2) honk horn
         
     Sub Object: Instrument Cluster
         Name 4 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
-            4)
+            1) odometer
+            2) tachometer
+            3) speedmoter
+            4) highlight indicator
         Name 3 actions that the [Sub Object] can do:
-            1)
-            2)
-            3)
+            1) display speed
+            2) display rpm
+            3) reset odometer
     
     Sub Object: Environment Controls
         Name 3 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
+            1)  internal lighting switch
+            2)  tempertaure control
+            3)  aircon switch
         Name 3 actions that the [Sub Object] can do:
-            1)
-            2)
-            3)
+            1) set tempurature
+            2) illuminate cabin
+            3) aircon on/off
 
     Sub Object: Infotainment System
         Name 3 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
+            1) radio
+            2) bluetooth pairing button
+            3) 
         Name 3 actions that the [Sub Object] can do:
-            1)
-            2)
-            3)
+            1) set station
+            2) turn on sound
+            3) pair with phone
 
     Sub Object: Seat 
         Name 3 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
+            1) armrest
+            2) heater
+            3) backrest
         Name 2 actions that the [Sub Object] can do:
-            1)
-            2)
+            1) tilt forward
+            2) heat
 */
 
 /*
@@ -196,53 +196,7 @@ Part 1b - Step 2: Assignment
         c) pick properties that can eventually be represented with 
         'int float double bool char std::string'.
 
-Thing 1)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
 
-Thing 2)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 3)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 4)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
 */
 
 /*
@@ -337,18 +291,8 @@ Define an object that is made of 5 sub-objects.
     These 5 sub-objects will not be defined using Primitives, but instead will be their own UDTs 
     you'll define these 5 sub-objects in Part 1d.
 
-Thing 10)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
+
+*/
 
  /*
 =================
@@ -434,65 +378,7 @@ example:
     You will need to provide 5 properties and 3 member functions of that Engine object in plain English.
     Remember to pick properties that can be represented with 'int float double bool char std::string'.
 
-Thing 5)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
 
-Thing 6)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 7)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 8)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 9)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
  */
 
 /*
@@ -545,12 +431,128 @@ MOVE THEM to the space below this block comment and put them in numerical order
     simply CUT and PASTE them in the space provided below:
 */
 
+/*
+Thing 1)  Vending Machine
+5 properties:
+    1)  number of cokes (int)
+    2)  number of mountain dews (int)
+    3)  number of quarters (int)
+    4)  number of dimes (int)
+    5)  number of nickels (int)
+3 things it can do:
+    1)  deliver soda
+    2)  make change
+    3)   display price
 
+Thing 2)  Battle Tank
+5 properties:
+    1) fuel supply  (float)
+    2) bullet supply (int)
+    3) turret angle (float)
+    4)  grenade supply (int)
+    5)  number of operators (int)
+3 things it can do:
+    1)  aim turret
+    2)  fire bullets
+    3)  launch grenades
 
+Thing 3)  digital camera    
+5 properties:
+    1)   light level (float)
+    2)   available storage (int)
+    3)   zoom degree (float)
+    4)   horizontal resolution (int)
+    5)   vertical resolution (int)
+3 things it can do:
+    1)   set zoom
+    2)   take picture
+    3)   delete picture
 
+Thing 4)  submarine
+5 properties:
+    1)  depth (float)
+    2)  heading (float)
+    3)  water pressure (float)
+    4)  number of shipmen (int)
+    5)  number of torpedos (int)
+3 things it can do:
+    1)  set depth
+    2)  set direction
+    3)  fire torpedo
 
+Thing 5) Executive Branch    
+5 properties:
+    1)  Name of President (std::string)
+    2)  Number of secret service (int)
+    3)  Location of President (std::string)
+    4)  Nuclear Suitcase code (int)
+    5)  Days remaining in office. (int)
+3 things it can do:
+    1)  Enact excecutive order
+    2)  Give a speech
+    3)  Initiate covert ops
 
+Thing 6 Legislative Branch
+5 properties:
+    1) Number of Lefties (int)
+    2) Number of righties (int)
+    3) Current bill under consideration (int)
+    4) Hours remaining for debate (int)
+    5) Currently in session (bool)
+3 things it can do:
+    1) Vote on bill.
+    2) Debate bill. 
+    3) Trade stocks.
 
+Thing 7) Judicial Brance
+5 properties:
+    1) Number of cases on docket (int)
+    2) Days remaining in current session (int)
+    3) Current case number (int)
+    4) Next Case number (int)
+    5) Currently in session (bool)
+3 things it can do:
+    1)  Judge case
+    2)  Remand case to lower court
+    3)  Listen to testimony
+
+Thing 8) Army
+5 properties:
+    1)  Number of officers (int)
+    2)  Number of soldiers (int)
+    3)  Soldier morale rating (float)
+    4)  Number of tanks (int)
+    5)  Number of bullets (int)
+3 things it can do:
+    1)  Develop attack plans
+    2)  Invade country
+    3)  Clean Barracks
+
+Thing 9)  Deep State
+5 properties:
+    1)  Numnber of embedded bureacrats (int)
+    2)  Number of embedded journalists (int)
+ `  3)  Percentage of comprimised politicians (float)
+    4)  Secret codeword (std::string)
+    5)  Sacred Number (int)
+3 things it can do:
+    1)  Coerce legislators
+    2)  Engineer narrative
+    3)  Supress information
+
+Thing 10) Government
+5 properties:
+    1) Executive Branch
+    2) Legislative Branch
+    3) Judicial Branch
+    4) Army 
+    5) Deep State
+3 things it can do:
+    1)  Go to war
+    2)  Levy Tax
+    3)  Propagandize Citizens
+
+*/
 
 /*
 =================
@@ -618,6 +620,7 @@ struct CarWash  //This is the empty struct, below my plain-English UDT.
 Notice that the struct name 'CarWash' conforms with the Course Coding Standard, described in the Readme.MD
 */
 
+
 /*
 =================
 Part 1e - Step 2: Commit
@@ -639,19 +642,6 @@ Part 1e - Step 3: Assignment
     - Do this for all 10 UDTs
     */
 
-struct CarWash 
-{
-    //5 properties:
-    //    - number of vacuum cleaners
-    //    - number of eco-friendly cleaning supplies
-    //    - stores the amount of water used per week.
-    //    - stores amount of profit made per week
-    //    - number of cars serviced per day
-    //3 things it can do:
-    //    - wash and wax car
-    //    - charge customer
-    //    - detail the car interior
-};
 
 /*
 =================
@@ -689,6 +679,7 @@ struct CarWash
     //    - charge customer
     //    - detail the car interior
 };
+
 /*
 
 =================
@@ -732,6 +723,8 @@ struct CarWash
     //detail the car interior
     void detailInterior();
 };
+
+
 /*
 =================
 Part 1e - Step 8: Commit
@@ -795,6 +788,8 @@ struct CarWash
     //detail the car interior
     void detailInterior();
 };
+
+
 /*
 =================
 Part 1e - Step 10: Commit
@@ -910,6 +905,7 @@ struct CarWash
 
     Keep this in mind when you define your UDTs in this project part.
     */
+
 };
 /*
 =================
@@ -1010,11 +1006,258 @@ Part 1e - Step 19: Request a review
 paste your code below
 */
 
+struct VendingMachine
+{
+// 5 properties:
+//     1)  number of cokes (int)
+    int numCokes = 33;
+//     2)  number of mountain dews (int)
+    int numMountainDews = 14;
+//     3)  number of quarters (int)
+    int numQuarters = 44;
+//     4)  number of dimes (int)
+    int numDimes = 22;
+//     5)  number of nickels (int)
+    int numNickels = 3;
+// 3 things it can do:
+//     1)  deliver soda
+    void deliverSode(int sodaCode);
+//     2)  make change
+    void makeChange(int sodaCode, int payment);
+//     3)   display price
+    void displayPrice(int sodaCode);
+};
 
+struct BattleTank
+{
+//     1) fuel supply  (float)
+    float fuelSupply = 0.833f;
+//     2) bullet supply (int)
+    int bulletSupply = 3553;
+//     3) turret angle (float)
+    float turretAngle = 0.223f;
+//     4)  grenade supply (int)
+    int grenadeSupply = 23;
+//     5)  number of operators (int)
+    int numOperators = 3;
+// 3 things it can do:
+//     1)  aim turret
+    void aimTurret(float angle);
+//     2)  fire bullets
+    bool firebullets(int numBullets);
+// returns false if not enough bullets
+//     3)  launch grenades
+    bool launchGrenades(int numGrenades);
+// returns false if not enough grenades
+};
 
+struct DigitalCamera
+{
+// 5 properties:
+//     1)   light level (float)
+    float lightLevel = 2.455f;
+//     2)   available storage (int)
+    int availableStorage = 234235;
+//     3)   zoom degree (float)
+    float zoomDegree = 2.5334f;
+//     4)   horizontal resolution (int)
+    int horizontalResolution = 1024;
+//     5)   vertical resolution (int)
+    int verticalResolution = 768;
+// here is the nested UDT
+    struct MemoryCard
+    { 
+        bool isFull = false;
+        bool isLocked = false;
+        std::string cardname = "Untitled";
+        int capacity = 1048576;
+        int memoryAddress = 0;
 
+        void storePicture(std::string Picture);
+        void setLock(bool lock);
+        std::string getPicture(int address);
+        
+    };
+// 3 things it can do:
+//     1)   set zoom
+    void setZoom(float degree);
+//     2)   take picture
+    int takePicture(MemoryCard memCard); // returns picture number
+//     3)   delete picture
+    void deletePicture(int pictNum, MemoryCard memCard);
+};
 
+struct Submarine
+{
+// 5 properties:
+//     1)  depth (float)
+    float depth = 203.33f;
+//     2)  heading (float)
+    float heading = 0.67f;
+//     3)  water pressure (float)
+    float waterPressure = 22.44f;
+//     4)  number of shipmen (int)
+    int numShipmen = 44;
+//     5)  number of torpedos (int)
+    int numTorpedos = 55;
 
+    struct Motor 
+    { 
+        std::string manufacturer = "RollsRoyce";
+        std::string model = "Submaster 3000";
+        int rpm = 0;
+        bool isReady = true;
+        int voltage = 220;
+
+        // 3 things it can do
+        void goOnline();
+        void goOffline();
+        bool setSpeed(int velocity);
+    };
+// 3 things it can do:
+//     1)  set depth
+    void setDepth(float chosenDepth);
+//     2)  set direction
+    void setDirection(float chosenHeading);
+//     3)  fire torpedo
+    bool fireTorpedo();
+// set velocity of submarine
+    void setVelocity(int velocity, Motor theMotor);
+// returns false if no torpedo present
+};
+
+struct ExecutiveBranch 
+{
+// 5 properties:
+//     1)  Name of President (std::string)
+    std::string nameOfPresident = "Bob";
+//     2)  Number of secret service (int)
+    int numSecretService = 23;
+//     3)  Location of President (std::string)
+    std::string locationPresident = "White House";
+//     4)  Nuclear Suitcase code (int)
+    int nukeSuitcaseCode = 8675309;
+//     5)  Days remaining in office. (int)
+    int daysRemainingInOffice = 245;
+// 3 things it can do:
+//     1)  Enact excecutive order
+    void enactExecutiveOrder(int orderNumber, std::string orderText);
+//     2)  Give a speech
+    void giveSpeech(std::string speechText);
+//     3)  Initiate covert ops
+    void initiateOps(std::string  details);
+};
+
+struct LegislativeBranch
+{
+// 5 properties:
+//     1) Number of Lefties (int)
+    int numLefties = 203;
+//     2) Number of righties (int)
+    int numRighties = 202;
+//     3) Current bill under consideration (int)
+    int currentBill = 2245;
+//     4) Hours remaining for debate (int)
+    int debateHoursRemaining = 4;
+//     5) Currently in session (bool)
+    bool inSession = true;
+// 3 things it can do:
+//     1) Vote on bill.
+    int voteOnBill(); // returns number of yeses
+//     2) Debate bill. 
+    void debateBill();
+//     3) Trade stocks.
+    void tradeStocks();
+};
+
+struct JudicialBranch
+{
+// 5 properties:
+//     1) Number of cases on docket (int)
+    int numCases = 45;
+//     2) Days remaining in current session (int)
+    int daysRemainingInSession = 55;
+//     3) Current case number (int)
+    int currentCaseNumber = 45623;
+//     4) Next Case number (int)
+    int nextCaseNumber = 45636;
+//     5) Currently in session (bool)
+    bool inSession = true;
+// 3 things it can do:
+//     1)  Judge case
+    bool judgeCase(); // true with judge sides with plantiff
+//     2)  Remand case to lower court
+    void remandCase();
+//     3)  Listen to testimony
+    void listenToTestimony();
+};
+
+struct Army
+{
+// 5 properties:
+//     1)  Number of officers (int)
+    int numOfficers = 4435;
+//     2)  Number of soldiers (int)
+    int numSoldiers = 434534;
+//     3)  Soldier morale rating (float)
+    float soldierMorale = 0.8873f;
+//     4)  Number of tanks (int)
+    int numTanks = 3345;
+//     5)  Number of bullets (int)
+    int numBullets = 3453453;
+// 3 things it can do:
+//     1)  Develop attack plans
+    void developPlans();
+//     2)  Invade country
+    void invadeCountry(std::string country);
+//     3)  Clean Barracks
+    void cleanBarracks();
+};
+
+struct DeepState
+{
+// 5 properties:
+//     1)  Numnber of embedded bureacrats (int)
+    int numEmbeddedBureaucrats = 25455;
+//     2)  Number of embedded journalists (int)
+    int numEmbeddedJournalists = 245;
+//  `  3)  Percentage of comprimised politicians (float)
+    float percentageComprimisedPoliticians = 33.65f;
+//     4)  Secret codeword (std::string)
+    std::string secretCodeword = "Smurf";
+//     5)  Sacred Number (int)
+    int sacredNumber = 88;
+// 3 things it can do:
+//     1)  Coerce legislators
+    void coerceLegislators();
+//     2)  Engineer narrative
+    void designNarrative();
+//     3)  Supress information
+    void suppressInformation();
+};
+
+struct Government
+
+{
+// 5 properties:
+//     1) Executive Branch
+    ExecutiveBranch execBranch;
+//     2) Legislative Branch
+    LegislativeBranch legBranch;
+//     3) Judicial Branch
+    JudicialBranch judBranch;
+//     4) Army 
+    Army army;
+//     5) Deep State
+    DeepState deepState;
+// 3 things it can do:
+//     1)  Go to war
+    void goToWar(std::string enemy);
+//     2)  Levy Tax
+    void levyTax(int amount);
+//     3)  Propagandize Citizens
+    void propagandizeCitizens(std::string narrative);
+};
 
 
 
