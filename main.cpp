@@ -1066,7 +1066,7 @@ struct DigitalCamera
     int verticalResolution = 768;
 // here is the nested UDT
     struct MemoryCard
-{ 
+    { 
         bool isFull = false;
         bool isLocked = false;
         std::string cardname = "Untitled";
@@ -1121,6 +1121,7 @@ struct Submarine
     void setDirection(float chosenHeading);
 //     3)  fire torpedo
     bool fireTorpedo();
+// set velocity of submarine
     void setVelocity(int velocity, Motor theMotor);
 // returns false if no torpedo present
 };
@@ -1188,7 +1189,7 @@ struct JudicialBranch
 //     2)  Remand case to lower court
     void remandCase();
 //     3)  Listen to testimony
-    void listenTestimony();
+    void listenToTestimony();
 };
 
 struct Army
@@ -1230,7 +1231,7 @@ struct DeepState
 //     1)  Coerce legislators
     void coerceLegislators();
 //     2)  Engineer narrative
-    void engineerNArrative();
+    void designNarrative();
 //     3)  Supress information
     void suppressInformation();
 };
