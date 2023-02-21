@@ -167,10 +167,19 @@ struct VendingMachine
     int numDimes = 22;
     int numNickels = 3;
 
-    void deliverSode(int sodaCode);
+    void deliverSoda(int sodaCode);
     void makeChange(int sodaCode, int payment);
     void displayPrice(int sodaCode);
 };
+
+void VendingMachine::deliverSoda( int sodaCode) 
+{
+    if (sodaCode == 1) 
+        --numCokes;
+    else
+        --numMountainDews;    
+}
+
 
 struct BattleTank
 {
@@ -184,6 +193,31 @@ struct BattleTank
     bool firebullets(int numBullets);
     bool launchGrenades(int numGrenades);
 };
+
+void BattleTank::aimTurret( float angle )
+{
+    turretAngle = angle;
+}
+bool BattleTank::firebullets( int numBullets )
+{
+      if (numBullets < bulletSupply)  
+      {
+          bulletSupply -= numBullets;
+            return true;
+      }
+     else 
+        return false;
+}   
+bool BattleTank::launchGrenades( int numGrenades )
+{
+      if (numGrenades < grenadeSupply)  
+      {
+          grenadeSupply -= numGrenades;
+            return true;
+      }
+     else 
+        return false;
+} 
 
 struct DigitalCamera
 {
@@ -202,7 +236,7 @@ struct DigitalCamera
         int capacity = 1048576;
         int memoryAddress = 0;
 
-        void storePicture(std::string Picture);
+        bool storePicture(std::string Picture);
         void setLock(bool lock);
         std::string getPicture(int address);
         
@@ -210,7 +244,23 @@ struct DigitalCamera
     void setZoom(float degree);
     void deletePicture(int pictNum, MemoryCard memCard);
 };
+bool DigitalCamera::MemoryCard::storePicture(std::string Picture)
+{
+    if (Picture != "")
+        return true;
+    else
+        return false;
+}
+void DigitalCamera::setZoom( float degree )
+{
+    zoomDegree = degree;
+}
 
+void DigitalCamera::deletePicture(int pictNum, MemoryCard memCard)
+{
+    memCard.memoryAddress = pictNum * 1024;
+    memCard.storePicture("BLANK");
+}
 struct Submarine
 {
 
@@ -239,6 +289,42 @@ struct Submarine
     void setVelocity(int velocity, Motor theMotor);
 };
 
+void Submarine::setDepth(float chosenDepth)
+{
+    depth = chosenDepth;
+}
+
+void Submarine::setDirection(float chosenHeading)
+{
+    heading = chosenHeading;
+}
+
+bool Submarine::fireTorpedo()
+{
+    if (numTorpedos > 0)
+    {       
+        --numTorpedos;
+        return true;
+    }
+    else return false;
+}
+
+bool Submarine::Motor::setSpeed(int velocity)
+{
+    if (isReady && velocity>0)
+    {
+        return true;
+    }
+    else return false;
+}
+void Submarine::setVelocity(int velocity, Motor theMotor)
+{
+    theMotor.setSpeed(velocity);
+}
+
+#include <iostream>
+using namespace std;
+
 struct ExecutiveBranch 
 {
     std::string nameOfPresident = "Bob";
@@ -251,6 +337,23 @@ struct ExecutiveBranch
     void initiateOps(std::string  details);
 };
 
+void ExecutiveBranch::enactExecutiveOrder(int orderNumber, std::string orderText)
+{
+
+    cout<<orderNumber;
+    cout<<orderText;
+}
+
+void ExecutiveBranch::giveSpeech(std::string speechText)
+{
+    cout<<speechText;
+}
+
+void initiateOps(std::string details)
+{
+    cout<<details;
+}
+
 struct LegislativeBranch
 {
     int numLefties = 203;
@@ -262,6 +365,21 @@ struct LegislativeBranch
     void debateBill();
     void tradeStocks();
 };
+
+int LegislativeBranch::voteOnBill()
+{
+    return currentBill;
+}
+
+void debateBill()
+{
+    cout << "blahblahblah";
+}
+
+void tradeStocks()
+{
+    cout << "WINNING";
+}
 
 struct JudicialBranch
 {
@@ -276,6 +394,21 @@ struct JudicialBranch
     void listenToTestimony();
 };
 
+bool JudicialBranch::judgeCase()
+{
+    return true;
+}
+
+void JudicialBranch::remandCase()
+{
+    cout << "REMANDED";
+}
+
+void JudicialBranch::listenToTestimony()
+{
+    cout << "zzzzzzzz";
+}
+
 struct Army
 {
     int numOfficers = 4435;
@@ -288,6 +421,22 @@ struct Army
     void cleanBarracks();
 };
 
+void Army::developPlans()
+{
+    cout << "plans developed.";
+}
+
+void Army::invadeCountry(std::string country)
+{
+    cout << "invading:";
+    cout << country;
+}
+
+void Army::cleanBarracks()
+{
+    cout << "Barracks cleaned";
+    soldierMorale *= .7f;
+}
 struct DeepState
 {
     int numEmbeddedBureaucrats = 25455;
@@ -299,6 +448,21 @@ struct DeepState
     void designNarrative();
     void suppressInformation();
 };
+
+void DeepState::coerceLegislators()
+{
+    cout << "coerced legislators";
+}
+
+void DeepState::designNarrative()
+{
+    cout << "Narrative designed";
+}
+
+void DeepState::suppressInformation()
+{
+    cout << "Information suppressed";
+}
 
 struct Government
 
@@ -313,7 +477,24 @@ struct Government
     void propagandizeCitizens(std::string narrative);
 };
 
+void Government::goToWar(std::string enemy)
+{
+    army.developPlans();
+    cout << "going to war against ";
+    cout << enemy;
+}
 
+void Government::levyTax(int amount)
+{
+    deepState.designNarrative();
+    cout << "Tax levied: ";
+    cout << amount;
+}
+
+void Government::propagandizeCitizens(std::string narrative)
+{
+    cout << narrative;
+}
 
 int main()
 {
