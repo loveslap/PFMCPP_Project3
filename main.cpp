@@ -200,23 +200,21 @@ void BattleTank::aimTurret( float angle )
 }
 bool BattleTank::firebullets( int numBullets )
 {
-      if (numBullets < bulletSupply)  
-      {
-          bulletSupply -= numBullets;
-            return true;
-      }
-     else 
-        return false;
+    if (numBullets < bulletSupply)  
+    {
+        bulletSupply -= numBullets;
+        return true;
+    }
+    return false;
 }   
 bool BattleTank::launchGrenades( int numGrenades )
 {
-      if (numGrenades < grenadeSupply)  
+    if (numGrenades < grenadeSupply)  
       {
-          grenadeSupply -= numGrenades;
-            return true;
-      }
-     else 
-        return false;
+        grenadeSupply -= numGrenades;
+        return true;
+      } 
+    return false;
 } 
 
 struct DigitalCamera
@@ -248,8 +246,8 @@ bool DigitalCamera::MemoryCard::storePicture(std::string Picture)
 {
     if (Picture != "")
         return true;
-    else
-        return false;
+    
+    return false;
 }
 void DigitalCamera::setZoom( float degree )
 {
@@ -306,7 +304,7 @@ bool Submarine::fireTorpedo()
         --numTorpedos;
         return true;
     }
-    else return false;
+    return false;
 }
 
 bool Submarine::Motor::setSpeed(int velocity)
@@ -315,7 +313,7 @@ bool Submarine::Motor::setSpeed(int velocity)
     {
         return true;
     }
-    else return false;
+    return false;
 }
 void Submarine::setVelocity(int velocity, Motor theMotor)
 {
@@ -323,7 +321,7 @@ void Submarine::setVelocity(int velocity, Motor theMotor)
 }
 
 #include <iostream>
-using namespace std;
+
 
 struct ExecutiveBranch 
 {
@@ -340,18 +338,18 @@ struct ExecutiveBranch
 void ExecutiveBranch::enactExecutiveOrder(int orderNumber, std::string orderText)
 {
 
-    cout<<orderNumber;
-    cout<<orderText;
+    std::cout << orderNumber;
+    std::cout << orderText;
 }
 
 void ExecutiveBranch::giveSpeech(std::string speechText)
 {
-    cout<<speechText;
+    std::cout<<speechText;
 }
 
 void initiateOps(std::string details)
 {
-    cout<<details;
+    std::cout<<details;
 }
 
 struct LegislativeBranch
@@ -371,14 +369,14 @@ int LegislativeBranch::voteOnBill()
     return currentBill;
 }
 
-void debateBill()
+void LegislativeBranch::debateBill()
 {
-    cout << "blahblahblah";
+   --debateHoursRemaining;
 }
 
 void tradeStocks()
 {
-    cout << "WINNING";
+    std::cout << "WINNING";
 }
 
 struct JudicialBranch
@@ -401,12 +399,12 @@ bool JudicialBranch::judgeCase()
 
 void JudicialBranch::remandCase()
 {
-    cout << "REMANDED";
+    currentCaseNumber = nextCaseNumber;
 }
 
 void JudicialBranch::listenToTestimony()
 {
-    cout << "zzzzzzzz";
+    std::cout << "Listened to testimony";
 }
 
 struct Army
@@ -421,20 +419,20 @@ struct Army
     void cleanBarracks();
 };
 
-void Army::developPlans()
+void Army::developPlans(std::string enemy)
 {
-    cout << "plans developed.";
+    std::cout << "plans developed.";
 }
 
 void Army::invadeCountry(std::string country)
 {
-    cout << "invading:";
-    cout << country;
+    std::cout << "invading:";
+    std::cout << country;
 }
 
 void Army::cleanBarracks()
 {
-    cout << "Barracks cleaned";
+    std::cout << "Barracks cleaned";
     soldierMorale *= .7f;
 }
 struct DeepState
@@ -451,17 +449,17 @@ struct DeepState
 
 void DeepState::coerceLegislators()
 {
-    cout << "coerced legislators";
+    std::cout << "coerced legislators";
 }
 
 void DeepState::designNarrative()
 {
-    cout << "Narrative designed";
+    std::cout << "Narrative designed";
 }
 
 void DeepState::suppressInformation()
 {
-    cout << "Information suppressed";
+    std::cout << "Information suppressed";
 }
 
 struct Government
@@ -479,21 +477,21 @@ struct Government
 
 void Government::goToWar(std::string enemy)
 {
-    army.developPlans();
-    cout << "going to war against ";
-    cout << enemy;
+    army.developPlans(enemy);
+    std::cout << "going to war against ";
+    std::cout << enemy;
 }
 
 void Government::levyTax(int amount)
 {
     deepState.designNarrative();
-    cout << "Tax levied: ";
-    cout << amount;
+    std::cout << "Tax levied: ";
+    std::cout << amount;
 }
 
 void Government::propagandizeCitizens(std::string narrative)
 {
-    cout << narrative;
+    std::cout << narrative;
 }
 
 int main()
