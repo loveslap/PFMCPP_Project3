@@ -210,10 +210,10 @@ bool BattleTank::firebullets( int numBullets )
 bool BattleTank::launchGrenades( int numGrenades )
 {
     if (numGrenades < grenadeSupply)  
-      {
+    {
         grenadeSupply -= numGrenades;
         return true;
-      } 
+    } 
     return false;
 } 
 
@@ -344,12 +344,12 @@ void ExecutiveBranch::enactExecutiveOrder(int orderNumber, std::string orderText
 
 void ExecutiveBranch::giveSpeech(std::string speechText)
 {
-    std::cout<<speechText;
+    std::cout << speechText;
 }
 
 void initiateOps(std::string details)
 {
-    std::cout<<details;
+    std::cout << details;
 }
 
 struct LegislativeBranch
@@ -414,14 +414,15 @@ struct Army
     float soldierMorale = 0.8873f;
     int numTanks = 3345;
     int numBullets = 3453453;
-    void developPlans();
+    void developPlans(std::string enemy);
     void invadeCountry(std::string country);
     void cleanBarracks();
 };
 
 void Army::developPlans(std::string enemy)
 {
-    std::cout << "plans developed.";
+    std::cout << "plans developed against";
+    std::cout << enemy;
 }
 
 void Army::invadeCountry(std::string country)
