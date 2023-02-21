@@ -108,10 +108,36 @@ struct CarWash
     You'll need to insert the Person struct from the video in the space below.
  */
 
+struct Person
+{
+    int age;
+    int height;
+    float hairLength;
+    float GPA;
+    unsigned int SATScore;
+    int distanceTraveled;
 
+    void run( int howFast, bool startWithLeftFoot);
+};
 
+struct Foot
+{
+    int size;
 
+    bool stepForward();
+    int stepSize();
 
+};
+
+bool Foot::stepForward()
+{
+    return true;
+}
+
+int Foot::stepSize()
+{
+    return size;
+}
  /*
  2) provide implementations for the member functions you declared in your 10 user-defined types from the previous video outside of your UDT definitions.
     If you have 'unused parameter' warnings, you aren't using one of your function parameters in your implementation.
