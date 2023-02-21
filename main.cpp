@@ -108,10 +108,36 @@ struct CarWash
     You'll need to insert the Person struct from the video in the space below.
  */
 
+struct Person
+{
+    int age;
+    int height;
+    float hairLength;
+    float GPA;
+    unsigned int SATScore;
+    int distanceTraveled;
 
+    void run( int howFast, bool startWithLeftFoot);
+};
 
+struct Foot
+{
+    int size;
 
+    bool stepForward();
+    int stepSize();
 
+};
+
+bool Foot::stepForward()
+{
+    return true;
+}
+
+int Foot::stepSize()
+{
+    return size;
+}
  /*
  2) provide implementations for the member functions you declared in your 10 user-defined types from the previous video outside of your UDT definitions.
     If you have 'unused parameter' warnings, you aren't using one of your function parameters in your implementation.
@@ -134,63 +160,72 @@ struct CarWash
 
 struct VendingMachine
 {
-// 5 properties:
-//     1)  number of cokes (int)
+
     int numCokes = 33;
-//     2)  number of mountain dews (int)
     int numMountainDews = 14;
-//     3)  number of quarters (int)
     int numQuarters = 44;
-//     4)  number of dimes (int)
     int numDimes = 22;
-//     5)  number of nickels (int)
     int numNickels = 3;
-// 3 things it can do:
-//     1)  deliver soda
-    void deliverSode(int sodaCode);
-//     2)  make change
+
+    void deliverSoda(int sodaCode);
     void makeChange(int sodaCode, int payment);
-//     3)   display price
     void displayPrice(int sodaCode);
 };
 
+void VendingMachine::deliverSoda( int sodaCode) 
+{
+    if (sodaCode == 1) 
+        --numCokes;
+    else
+        --numMountainDews;    
+}
+
+
 struct BattleTank
 {
-//     1) fuel supply  (float)
     float fuelSupply = 0.833f;
-//     2) bullet supply (int)
     int bulletSupply = 3553;
-//     3) turret angle (float)
     float turretAngle = 0.223f;
-//     4)  grenade supply (int)
     int grenadeSupply = 23;
-//     5)  number of operators (int)
     int numOperators = 3;
-// 3 things it can do:
-//     1)  aim turret
+
     void aimTurret(float angle);
-//     2)  fire bullets
     bool firebullets(int numBullets);
-// returns false if not enough bullets
-//     3)  launch grenades
     bool launchGrenades(int numGrenades);
-// returns false if not enough grenades
 };
+
+void BattleTank::aimTurret( float angle )
+{
+    turretAngle = angle;
+}
+bool BattleTank::firebullets( int numBullets )
+{
+    if (numBullets < bulletSupply)  
+    {
+        bulletSupply -= numBullets;
+        return true;
+    }
+    return false;
+}   
+bool BattleTank::launchGrenades( int numGrenades )
+{
+    if (numGrenades < grenadeSupply)  
+    {
+        grenadeSupply -= numGrenades;
+        return true;
+    } 
+    return false;
+} 
 
 struct DigitalCamera
 {
-// 5 properties:
-//     1)   light level (float)
+
     float lightLevel = 2.455f;
-//     2)   available storage (int)
     int availableStorage = 234235;
-//     3)   zoom degree (float)
     float zoomDegree = 2.5334f;
-//     4)   horizontal resolution (int)
     int horizontalResolution = 1024;
-//     5)   vertical resolution (int)
     int verticalResolution = 768;
-// here is the nested UDT
+
     struct MemoryCard
     { 
         bool isFull = false;
@@ -199,32 +234,38 @@ struct DigitalCamera
         int capacity = 1048576;
         int memoryAddress = 0;
 
-        void storePicture(std::string Picture);
+        bool storePicture(std::string Picture);
         void setLock(bool lock);
         std::string getPicture(int address);
         
     };
-// 3 things it can do:
-//     1)   set zoom
     void setZoom(float degree);
-//     2)   take picture
-    int takePicture(MemoryCard memCard); // returns picture number
-//     3)   delete picture
     void deletePicture(int pictNum, MemoryCard memCard);
 };
+bool DigitalCamera::MemoryCard::storePicture(std::string Picture)
+{
+    if (Picture != "")
+        return true;
+    
+    return false;
+}
+void DigitalCamera::setZoom( float degree )
+{
+    zoomDegree = degree;
+}
 
+void DigitalCamera::deletePicture(int pictNum, MemoryCard memCard)
+{
+    memCard.memoryAddress = pictNum * 1024;
+    memCard.storePicture("BLANK");
+}
 struct Submarine
 {
-// 5 properties:
-//     1)  depth (float)
+
     float depth = 203.33f;
-//     2)  heading (float)
     float heading = 0.67f;
-//     3)  water pressure (float)
     float waterPressure = 22.44f;
-//     4)  number of shipmen (int)
     int numShipmen = 44;
-//     5)  number of torpedos (int)
     int numTorpedos = 55;
 
     struct Motor 
@@ -235,157 +276,224 @@ struct Submarine
         bool isReady = true;
         int voltage = 220;
 
-        // 3 things it can do
         void goOnline();
         void goOffline();
         bool setSpeed(int velocity);
     };
-// 3 things it can do:
-//     1)  set depth
+
     void setDepth(float chosenDepth);
-//     2)  set direction
     void setDirection(float chosenHeading);
-//     3)  fire torpedo
     bool fireTorpedo();
-// set velocity of submarine
     void setVelocity(int velocity, Motor theMotor);
-// returns false if no torpedo present
 };
+
+void Submarine::setDepth(float chosenDepth)
+{
+    depth = chosenDepth;
+}
+
+void Submarine::setDirection(float chosenHeading)
+{
+    heading = chosenHeading;
+}
+
+bool Submarine::fireTorpedo()
+{
+    if (numTorpedos > 0)
+    {       
+        --numTorpedos;
+        return true;
+    }
+    return false;
+}
+
+bool Submarine::Motor::setSpeed(int velocity)
+{
+    if (isReady && velocity>0)
+    {
+        return true;
+    }
+    return false;
+}
+void Submarine::setVelocity(int velocity, Motor theMotor)
+{
+    theMotor.setSpeed(velocity);
+}
+
+#include <iostream>
+
 
 struct ExecutiveBranch 
 {
-// 5 properties:
-//     1)  Name of President (std::string)
     std::string nameOfPresident = "Bob";
-//     2)  Number of secret service (int)
     int numSecretService = 23;
-//     3)  Location of President (std::string)
     std::string locationPresident = "White House";
-//     4)  Nuclear Suitcase code (int)
     int nukeSuitcaseCode = 8675309;
-//     5)  Days remaining in office. (int)
     int daysRemainingInOffice = 245;
-// 3 things it can do:
-//     1)  Enact excecutive order
     void enactExecutiveOrder(int orderNumber, std::string orderText);
-//     2)  Give a speech
     void giveSpeech(std::string speechText);
-//     3)  Initiate covert ops
     void initiateOps(std::string  details);
 };
 
+void ExecutiveBranch::enactExecutiveOrder(int orderNumber, std::string orderText)
+{
+
+    std::cout << orderNumber;
+    std::cout << orderText;
+}
+
+void ExecutiveBranch::giveSpeech(std::string speechText)
+{
+    std::cout << speechText;
+}
+
+void initiateOps(std::string details)
+{
+    std::cout << details;
+}
+
 struct LegislativeBranch
 {
-// 5 properties:
-//     1) Number of Lefties (int)
     int numLefties = 203;
-//     2) Number of righties (int)
     int numRighties = 202;
-//     3) Current bill under consideration (int)
     int currentBill = 2245;
-//     4) Hours remaining for debate (int)
     int debateHoursRemaining = 4;
-//     5) Currently in session (bool)
     bool inSession = true;
-// 3 things it can do:
-//     1) Vote on bill.
-    int voteOnBill(); // returns number of yeses
-//     2) Debate bill. 
+    int voteOnBill(); 
     void debateBill();
-//     3) Trade stocks.
     void tradeStocks();
 };
 
+int LegislativeBranch::voteOnBill()
+{
+    return currentBill;
+}
+
+void LegislativeBranch::debateBill()
+{
+   --debateHoursRemaining;
+}
+
+void tradeStocks()
+{
+    std::cout << "WINNING";
+}
+
 struct JudicialBranch
 {
-// 5 properties:
-//     1) Number of cases on docket (int)
+
     int numCases = 45;
-//     2) Days remaining in current session (int)
     int daysRemainingInSession = 55;
-//     3) Current case number (int)
     int currentCaseNumber = 45623;
-//     4) Next Case number (int)
     int nextCaseNumber = 45636;
-//     5) Currently in session (bool)
     bool inSession = true;
-// 3 things it can do:
-//     1)  Judge case
-    bool judgeCase(); // true with judge sides with plantiff
-//     2)  Remand case to lower court
+    bool judgeCase(); 
     void remandCase();
-//     3)  Listen to testimony
     void listenToTestimony();
 };
 
+bool JudicialBranch::judgeCase()
+{
+    return true;
+}
+
+void JudicialBranch::remandCase()
+{
+    currentCaseNumber = nextCaseNumber;
+}
+
+void JudicialBranch::listenToTestimony()
+{
+    std::cout << "Listened to testimony";
+}
+
 struct Army
 {
-// 5 properties:
-//     1)  Number of officers (int)
     int numOfficers = 4435;
-//     2)  Number of soldiers (int)
     int numSoldiers = 434534;
-//     3)  Soldier morale rating (float)
     float soldierMorale = 0.8873f;
-//     4)  Number of tanks (int)
     int numTanks = 3345;
-//     5)  Number of bullets (int)
     int numBullets = 3453453;
-// 3 things it can do:
-//     1)  Develop attack plans
-    void developPlans();
-//     2)  Invade country
+    void developPlans(std::string enemy);
     void invadeCountry(std::string country);
-//     3)  Clean Barracks
     void cleanBarracks();
 };
 
+void Army::developPlans(std::string enemy)
+{
+    std::cout << "plans developed against";
+    std::cout << enemy;
+}
+
+void Army::invadeCountry(std::string country)
+{
+    std::cout << "invading:";
+    std::cout << country;
+}
+
+void Army::cleanBarracks()
+{
+    std::cout << "Barracks cleaned";
+    soldierMorale *= .7f;
+}
 struct DeepState
 {
-// 5 properties:
-//     1)  Numnber of embedded bureacrats (int)
     int numEmbeddedBureaucrats = 25455;
-//     2)  Number of embedded journalists (int)
     int numEmbeddedJournalists = 245;
-//  `  3)  Percentage of comprimised politicians (float)
     float percentageComprimisedPoliticians = 33.65f;
-//     4)  Secret codeword (std::string)
     std::string secretCodeword = "Smurf";
-//     5)  Sacred Number (int)
     int sacredNumber = 88;
-// 3 things it can do:
-//     1)  Coerce legislators
     void coerceLegislators();
-//     2)  Engineer narrative
     void designNarrative();
-//     3)  Supress information
     void suppressInformation();
 };
+
+void DeepState::coerceLegislators()
+{
+    std::cout << "coerced legislators";
+}
+
+void DeepState::designNarrative()
+{
+    std::cout << "Narrative designed";
+}
+
+void DeepState::suppressInformation()
+{
+    std::cout << "Information suppressed";
+}
 
 struct Government
 
 {
-// 5 properties:
-//     1) Executive Branch
     ExecutiveBranch execBranch;
-//     2) Legislative Branch
     LegislativeBranch legBranch;
-//     3) Judicial Branch
     JudicialBranch judBranch;
-//     4) Army 
     Army army;
-//     5) Deep State
     DeepState deepState;
-// 3 things it can do:
-//     1)  Go to war
     void goToWar(std::string enemy);
-//     2)  Levy Tax
     void levyTax(int amount);
-//     3)  Propagandize Citizens
     void propagandizeCitizens(std::string narrative);
 };
 
+void Government::goToWar(std::string enemy)
+{
+    army.developPlans(enemy);
+    std::cout << "going to war against ";
+    std::cout << enemy;
+}
 
+void Government::levyTax(int amount)
+{
+    deepState.designNarrative();
+    std::cout << "Tax levied: ";
+    std::cout << amount;
+}
+
+void Government::propagandizeCitizens(std::string narrative)
+{
+    std::cout << narrative;
+}
 
 int main()
 {
