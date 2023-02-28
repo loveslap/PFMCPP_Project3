@@ -1,196 +1,147 @@
- /*
- Project 3 - Part 2 / 5
- Video: Chapter 2 Part 6
- Implementations tasks
- 
-Create a branch named Part2
-
- tasks
- 0) delete all of the plain english pseudo-code you added in Part1.
-   don't forget to remove the blank lines left behind after you remove your comments
-   - you should be left with only your UDTs.
-*/
-// example:
-// if you had something like this at the end of Part1e:
 /*
-Thing: Car Wash   
-    5 properties:
-        - number of vacuum cleaners
-        - number of eco-friendly cleaning supplies
-        - stores the amount of water used per week.
-        - stores amount of profit made per week
-        - number of cars serviced per day
-    3 things it can do:
-        - wash and wax car
-        - charge customer
-        - detail the car interior
+ Project 3 - Part 3 / 5
+ video: Chapter 2 - Part 8
+ Constructors tasks
+
+ Create a branch named Part3
+
+ On this new branch:
+
+ 0) if you opted to not fill in any of your member functions in part2, 
+    fill in ALL of your member functions
+    
+ 1) Add a constructor for each User-Defined-Type.
+    The constructor should be the first declaration in your UDT, before all member variables and member functions.
+    add a std::cout message in the constructor that prints out the name of the class being constructed.  
+    When you run your code, you'll see the order that your objects are created in the program output. 
+ 
+ 2) For each User-Defined-Type:
+        amend some of the member functions to print out something interesting via std::cout
+ 
+ 3) Instantiate 1 or 2 instances of EACH of your user-defined types in the main() function.  
+    You should have at least 12 different variables declared in main(), because you have written 12 different types (including the nested types)
+
+ 4) For each instantiated UDT: 
+        call each of that instance's member functions.
+        You're doing this to show that your code doesn't produce warnings when you call the functions that take arguments.
+ 
+ 5) add some std::cout statements in main() that print out your UDT's member variable values or values returned from your UDT member functions (if they return values)
+ 
+ After you finish defining each type/function:
+ click the [run] button.  Clear up any errors or warnings as best you can.
+ if your code produces a -Wpadded warning, add '-Wno-padded' to the .replit file with the other compiler flags (-Weverything -Wno-missing-prototypes etc etc)
+ 
+ example:
  */
 
 #include <iostream>
-#include <string>
-namespace Part1eVersion 
+namespace Example 
 {
-struct CarWash        
+struct UDT  // my user defined type named 'UDT'
 {
-    //number of vacuum cleaners                     
-    int numVacuumCleaners = 3; 
-    //number of eco-friendly cleaning supplies      
-    int numEcoFriendlyCleaningSupplies = 20;     
-    //stores the amount of water used per week.     
-    float waterUsedPerWeek = 200.f;            
-    //stores amount of profit made per week         
-    float profitPerWeek = 495.95f;               
-    //number of cars serviced per day               
-    int numberOfCarsServiced = 10;               
-    
-    struct Car  
-    {
-        bool isAPickupTruck = false;
-        float gasMileage = 26.2f;        
-        int year = 1985;
-        std::string manufacturer = "Toyota";
-        std::string model = "Corolla";
-
-        void fillTank(float costPerGallon, double fuelAmountInGallons = 2.0, bool requiresDiesel = false);  
-        void breakDown(std::string failureType, bool requiresTow = false);
-        int getMilesTraveledAnnually(bool includeUberLyftTrips);
-    };
-
-    //wash and wax car
-    void washAndWaxCar( Car car ); 
-    //charge customer
-    float chargeCustomer(float discountPercentage);
-    //detail the car interior
-    void detailInterior( Car car );
-    
-    Car carBeingServiced;  
+    int thing = 0; //a member variable
+    UDT();              //1) the constructor
+    void printThing();  //the member function
 };
+
+//the function definitions are outside of the class
+UDT::UDT()
+{
+    std::cout << "UDT being constructed!" << std::endl; //1) 
 }
 
-//this is what I want to see after the code is cleaned up: 
-namespace Part2Version
+void UDT::printThing()
 {
-struct CarWash        
-{
-    int numVacuumCleaners = 3; 
-    int numEcoFriendlyCleaningSupplies = 20;     
-    float waterUsedPerWeek = 200.f;            
-    float profitPerWeek = 495.95f;               
-    int numberOfCarsServiced = 10;               
-    
-    struct Car  
-    {
-        bool isAPickupTruck = false;
-        float gasMileage = 26.2f;        
-        int year = 1985;
-        std::string manufacturer = "Toyota";
-        std::string model = "Corolla";
-
-        void fillTank(double fuelAmountInGallons = 2.0);  
-        void breakDown(std::string failureType, bool requiresTow = false);
-        int getMilesTraveledAnnually(bool includeUberLyftTrips);
-    };
-
-    void washAndWaxCar( Car car ); 
-    float chargeCustomer(float discountPercentage);
-    void detailInterior( Car car );
-    
-    Car carBeingServiced;  
-};
+    std::cout << "UDT::printThing() " << thing << std::endl;  //2) printing out something interesting
 }
-  /*
-    The above snippet is just an example showing you how to clean up your code.  
-    Do not put your cleaned up code into a namespace like I have done here.
 
- 1) write the definition for the Type that leftFoot and rightFoot are instantiations of.
-    don't forget to define and implement the member functions 'stepForward()' and 'stepSize()'
-    you should be able to deduce the return type of those functions based on their usage in Person::run()
-    You'll need to insert the Person struct from the video in the space below.
- */
+int main()
+{
+    UDT foo;              //3) instantiating a UDT named 'foo' in main()
+    foo.printThing();     //4) calling a member function of the UDT instance.
+    
+    //5) a std::cout statement accessing foo's member variable.
+    //It also demonstrates a 'ternary expression', which is syntactic shorthand for an 'if/else' expression
+    std::cout << "Is foo's member var 'thing' equal to 0? " << (foo.thing == 0 ? "Yes" : "No") << "\n";
+    
+    return 0;
+}
+} //end namespace Example
+
+//insert Example::main() into main() of user's repo.
 
 
 
-
-
- /*
- 2) provide implementations for the member functions you declared in your 10 user-defined types from the previous video outside of your UDT definitions.
-    If you have 'unused parameter' warnings, you aren't using one of your function parameters in your implementation.
-    Solution: use the parameter in your implementation.
-
-    If you have 'shadows a field of <classname>' warnings, a local variable in the function has the same name as a class member.  
-    This local variable could also be a function parameter with the same name as the class member.
-    Solution: change the local variable's name so it is different from the class member variable's name.
- 
- 3) be sure to write the correct full qualified name for the nested type's member functions.
- 
- 4) After you finish defining each type/function, click the [run] button.  Clear up any errors or warnings as best you can.
- if your code produces a -Wpadded warning, add '-Wno-padded' to the .replit file with the other compiler flags (-Weverything -Wno-missing-prototypes etc etc)
- If your code produces -Wconversion warnings, do NOT use static_cast<> to solve the warnings.  
- Casting has not been covered yet.
- Change your code so that no warnings are produced WITHOUT using casting.
- This usually means you have to use identical types for all variables used in an expression that is producing that conversion warning.
- */
 
 
 struct VendingMachine
 {
-// 5 properties:
-//     1)  number of cokes (int)
+
     int numCokes = 33;
-//     2)  number of mountain dews (int)
     int numMountainDews = 14;
-//     3)  number of quarters (int)
     int numQuarters = 44;
-//     4)  number of dimes (int)
     int numDimes = 22;
-//     5)  number of nickels (int)
     int numNickels = 3;
-// 3 things it can do:
-//     1)  deliver soda
-    void deliverSode(int sodaCode);
-//     2)  make change
+
+    void deliverSoda(int sodaCode);
     void makeChange(int sodaCode, int payment);
-//     3)   display price
     void displayPrice(int sodaCode);
 };
 
+void VendingMachine::deliverSoda( int sodaCode) 
+{
+    if (sodaCode == 1) 
+        --numCokes;
+    else
+        --numMountainDews;    
+}
+
+
 struct BattleTank
 {
-//     1) fuel supply  (float)
     float fuelSupply = 0.833f;
-//     2) bullet supply (int)
     int bulletSupply = 3553;
-//     3) turret angle (float)
     float turretAngle = 0.223f;
-//     4)  grenade supply (int)
     int grenadeSupply = 23;
-//     5)  number of operators (int)
     int numOperators = 3;
-// 3 things it can do:
-//     1)  aim turret
+
     void aimTurret(float angle);
-//     2)  fire bullets
     bool firebullets(int numBullets);
-// returns false if not enough bullets
-//     3)  launch grenades
     bool launchGrenades(int numGrenades);
-// returns false if not enough grenades
 };
+
+void BattleTank::aimTurret( float angle )
+{
+    turretAngle = angle;
+}
+bool BattleTank::firebullets( int numBullets )
+{
+    if (numBullets < bulletSupply)  
+    {
+        bulletSupply -= numBullets;
+        return true;
+    }
+    return false;
+}   
+bool BattleTank::launchGrenades( int numGrenades )
+{
+    if (numGrenades < grenadeSupply)  
+    {
+        grenadeSupply -= numGrenades;
+        return true;
+    } 
+    return false;
+} 
 
 struct DigitalCamera
 {
-// 5 properties:
-//     1)   light level (float)
+
     float lightLevel = 2.455f;
-//     2)   available storage (int)
     int availableStorage = 234235;
-//     3)   zoom degree (float)
     float zoomDegree = 2.5334f;
-//     4)   horizontal resolution (int)
     int horizontalResolution = 1024;
-//     5)   vertical resolution (int)
     int verticalResolution = 768;
-// here is the nested UDT
+
     struct MemoryCard
     { 
         bool isFull = false;
@@ -199,32 +150,38 @@ struct DigitalCamera
         int capacity = 1048576;
         int memoryAddress = 0;
 
-        void storePicture(std::string Picture);
+        bool storePicture(std::string Picture);
         void setLock(bool lock);
         std::string getPicture(int address);
         
     };
-// 3 things it can do:
-//     1)   set zoom
     void setZoom(float degree);
-//     2)   take picture
-    int takePicture(MemoryCard memCard); // returns picture number
-//     3)   delete picture
     void deletePicture(int pictNum, MemoryCard memCard);
 };
+bool DigitalCamera::MemoryCard::storePicture(std::string Picture)
+{
+    if (Picture != "")
+        return true;
+    
+    return false;
+}
+void DigitalCamera::setZoom( float degree )
+{
+    zoomDegree = degree;
+}
 
+void DigitalCamera::deletePicture(int pictNum, MemoryCard memCard)
+{
+    memCard.memoryAddress = pictNum * 1024;
+    memCard.storePicture("BLANK");
+}
 struct Submarine
 {
-// 5 properties:
-//     1)  depth (float)
+
     float depth = 203.33f;
-//     2)  heading (float)
     float heading = 0.67f;
-//     3)  water pressure (float)
     float waterPressure = 22.44f;
-//     4)  number of shipmen (int)
     int numShipmen = 44;
-//     5)  number of torpedos (int)
     int numTorpedos = 55;
 
     struct Motor 
@@ -235,159 +192,229 @@ struct Submarine
         bool isReady = true;
         int voltage = 220;
 
-        // 3 things it can do
         void goOnline();
         void goOffline();
         bool setSpeed(int velocity);
     };
-// 3 things it can do:
-//     1)  set depth
+
     void setDepth(float chosenDepth);
-//     2)  set direction
     void setDirection(float chosenHeading);
-//     3)  fire torpedo
     bool fireTorpedo();
-// set velocity of submarine
     void setVelocity(int velocity, Motor theMotor);
-// returns false if no torpedo present
 };
+
+void Submarine::setDepth(float chosenDepth)
+{
+    depth = chosenDepth;
+}
+
+void Submarine::setDirection(float chosenHeading)
+{
+    heading = chosenHeading;
+}
+
+bool Submarine::fireTorpedo()
+{
+    if (numTorpedos > 0)
+    {       
+        --numTorpedos;
+        return true;
+    }
+    return false;
+}
+
+bool Submarine::Motor::setSpeed(int velocity)
+{
+    if (isReady && velocity>0)
+    {
+        return true;
+    }
+    return false;
+}
+void Submarine::setVelocity(int velocity, Motor theMotor)
+{
+    theMotor.setSpeed(velocity);
+}
+
+#include <iostream>
+
 
 struct ExecutiveBranch 
 {
-// 5 properties:
-//     1)  Name of President (std::string)
     std::string nameOfPresident = "Bob";
-//     2)  Number of secret service (int)
     int numSecretService = 23;
-//     3)  Location of President (std::string)
     std::string locationPresident = "White House";
-//     4)  Nuclear Suitcase code (int)
     int nukeSuitcaseCode = 8675309;
-//     5)  Days remaining in office. (int)
     int daysRemainingInOffice = 245;
-// 3 things it can do:
-//     1)  Enact excecutive order
     void enactExecutiveOrder(int orderNumber, std::string orderText);
-//     2)  Give a speech
     void giveSpeech(std::string speechText);
-//     3)  Initiate covert ops
     void initiateOps(std::string  details);
 };
 
+void ExecutiveBranch::enactExecutiveOrder(int orderNumber, std::string orderText)
+{
+
+    std::cout << orderNumber;
+    std::cout << orderText;
+}
+
+void ExecutiveBranch::giveSpeech(std::string speechText)
+{
+    std::cout << speechText;
+}
+
+void initiateOps(std::string details)
+{
+    std::cout << details;
+}
+
 struct LegislativeBranch
 {
-// 5 properties:
-//     1) Number of Lefties (int)
     int numLefties = 203;
-//     2) Number of righties (int)
     int numRighties = 202;
-//     3) Current bill under consideration (int)
     int currentBill = 2245;
-//     4) Hours remaining for debate (int)
     int debateHoursRemaining = 4;
-//     5) Currently in session (bool)
     bool inSession = true;
-// 3 things it can do:
-//     1) Vote on bill.
-    int voteOnBill(); // returns number of yeses
-//     2) Debate bill. 
+    int voteOnBill(); 
     void debateBill();
-//     3) Trade stocks.
     void tradeStocks();
 };
 
+int LegislativeBranch::voteOnBill()
+{
+    return currentBill;
+}
+
+void LegislativeBranch::debateBill()
+{
+   --debateHoursRemaining;
+}
+
+void tradeStocks()
+{
+    std::cout << "WINNING";
+}
+
 struct JudicialBranch
 {
-// 5 properties:
-//     1) Number of cases on docket (int)
+
     int numCases = 45;
-//     2) Days remaining in current session (int)
     int daysRemainingInSession = 55;
-//     3) Current case number (int)
     int currentCaseNumber = 45623;
-//     4) Next Case number (int)
     int nextCaseNumber = 45636;
-//     5) Currently in session (bool)
     bool inSession = true;
-// 3 things it can do:
-//     1)  Judge case
-    bool judgeCase(); // true with judge sides with plantiff
-//     2)  Remand case to lower court
+    bool judgeCase(); 
     void remandCase();
-//     3)  Listen to testimony
     void listenToTestimony();
 };
 
+bool JudicialBranch::judgeCase()
+{
+    return true;
+}
+
+void JudicialBranch::remandCase()
+{
+    currentCaseNumber = nextCaseNumber;
+}
+
+void JudicialBranch::listenToTestimony()
+{
+    std::cout << "Listened to testimony";
+}
+
 struct Army
 {
-// 5 properties:
-//     1)  Number of officers (int)
     int numOfficers = 4435;
-//     2)  Number of soldiers (int)
     int numSoldiers = 434534;
-//     3)  Soldier morale rating (float)
     float soldierMorale = 0.8873f;
-//     4)  Number of tanks (int)
     int numTanks = 3345;
-//     5)  Number of bullets (int)
     int numBullets = 3453453;
-// 3 things it can do:
-//     1)  Develop attack plans
-    void developPlans();
-//     2)  Invade country
+    void developPlans(std::string enemy);
     void invadeCountry(std::string country);
-//     3)  Clean Barracks
     void cleanBarracks();
 };
 
+void Army::developPlans(std::string enemy)
+{
+    std::cout << "plans developed against";
+    std::cout << enemy;
+}
+
+void Army::invadeCountry(std::string country)
+{
+    std::cout << "invading:";
+    std::cout << country;
+}
+
+void Army::cleanBarracks()
+{
+    std::cout << "Barracks cleaned";
+    soldierMorale *= .7f;
+}
 struct DeepState
 {
-// 5 properties:
-//     1)  Numnber of embedded bureacrats (int)
     int numEmbeddedBureaucrats = 25455;
-//     2)  Number of embedded journalists (int)
     int numEmbeddedJournalists = 245;
-//  `  3)  Percentage of comprimised politicians (float)
     float percentageComprimisedPoliticians = 33.65f;
-//     4)  Secret codeword (std::string)
     std::string secretCodeword = "Smurf";
-//     5)  Sacred Number (int)
     int sacredNumber = 88;
-// 3 things it can do:
-//     1)  Coerce legislators
     void coerceLegislators();
-//     2)  Engineer narrative
     void designNarrative();
-//     3)  Supress information
     void suppressInformation();
 };
+
+void DeepState::coerceLegislators()
+{
+    std::cout << "coerced legislators";
+}
+
+void DeepState::designNarrative()
+{
+    std::cout << "Narrative designed";
+}
+
+void DeepState::suppressInformation()
+{
+    std::cout << "Information suppressed";
+}
 
 struct Government
 
 {
-// 5 properties:
-//     1) Executive Branch
     ExecutiveBranch execBranch;
-//     2) Legislative Branch
     LegislativeBranch legBranch;
-//     3) Judicial Branch
     JudicialBranch judBranch;
-//     4) Army 
     Army army;
-//     5) Deep State
     DeepState deepState;
-// 3 things it can do:
-//     1)  Go to war
     void goToWar(std::string enemy);
-//     2)  Levy Tax
     void levyTax(int amount);
-//     3)  Propagandize Citizens
     void propagandizeCitizens(std::string narrative);
 };
 
+void Government::goToWar(std::string enemy)
+{
+    army.developPlans(enemy);
+    std::cout << "going to war against ";
+    std::cout << enemy;
+}
 
+void Government::levyTax(int amount)
+{
+    deepState.designNarrative();
+    std::cout << "Tax levied: ";
+    std::cout << amount;
+}
+
+void Government::propagandizeCitizens(std::string narrative)
+{
+    std::cout << narrative;
+}
 
 int main()
 {
+    Example::main();
+    
+    
     std::cout << "good to go!" << std::endl;
 }
