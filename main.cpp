@@ -108,12 +108,14 @@ void VendingMachine::deliverSoda( int sodaCode)
 
 void VendingMachine::makeChange(int sodaCode, int payment)
 {
-    std::cout << 1.5 - payment; 
+    std::cout << "Sodacode:" << sodaCode << std::endl;
+    std::cout << "Change:" << 1.5 - payment << std::endl;
 }
 
 void VendingMachine::displayPrice(int sodacode)
 {
-    std::cout << 1.5;
+    std::cout << "Sodacode:" << sodacode << "Price: ";
+    std::cout << 1.5  << std::endl;
 }
 
 struct BattleTank
@@ -534,18 +536,18 @@ int main()
     vm.displayPrice(1);
 
     BattleTank bt;
-    bt.aimTurret(1.05);
+    bt.aimTurret(1.05f);
     bt.fireBullets(33);
     bt.launchGrenades(3);
 
     DigitalCamera dc;
     DigitalCamera::MemoryCard mc;
-    dc.setZoom(88.32);
+    dc.setZoom(88.32f);
     dc.deletePicture(6, mc);
 
     Submarine sub;
     Submarine::Motor subMotor;
-    sub.setDepth(99.4);
+    sub.setDepth(99.4f);
     sub.setDirection(45.25);
     sub.fireTorpedo();
     sub.setVelocity(5, subMotor);
