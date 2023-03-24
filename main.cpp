@@ -95,15 +95,16 @@ VendingMachine::VendingMachine()
 }
 void VendingMachine::deliverSoda( int sodaCode) 
 {
-    if (sodaCode == 1) {
+    if (sodaCode == 1)
+    {
         --numCokes;
-            std::cout << "Delivering Coke" << std::endl;
-        }
+        std::cout << "Delivering Coke" << std::endl;
+    }
     else
     {
         --numMountainDews;    
-     std::cout << "Delivering Mountain Dew" << std::endl;
-        }
+        std::cout << "Delivering Mountain Dew" << std::endl;
+    }
 }
 
 void VendingMachine::makeChange(int sodaCode, int payment)
@@ -148,7 +149,7 @@ bool BattleTank::fireBullets( int numBullets )
     if (numBullets < bulletSupply)  
     {
         bulletSupply -= numBullets;
-         std::cout << "Firing Bullets" << std::endl;
+        std::cout << "Firing Bullets" << std::endl;
         return true;
     }
     return false;
@@ -206,10 +207,10 @@ DigitalCamera::MemoryCard::MemoryCard()
 bool DigitalCamera::MemoryCard::storePicture(std::string Picture)
 {
     if (Picture != "")
-        {
-         std::cout << "Storing picture" << std::endl;
+    {
+        std::cout << "Storing picture" << std::endl;
         return true;
-        }
+    }
     return false;
 }
 void DigitalCamera::setZoom( float degree )
@@ -221,7 +222,7 @@ void DigitalCamera::deletePicture(int pictNum, MemoryCard memCard)
 {
     memCard.memoryAddress = pictNum * 1024;
     memCard.storePicture("BLANK");
-     std::cout << "Deleting picture" << std::endl;
+    std::cout << "Deleting picture" << std::endl;
 }
 struct Submarine
 {
@@ -267,7 +268,7 @@ Submarine::Motor::Motor()
 void Submarine::setDepth(float chosenDepth)
 {
     depth = chosenDepth;
-     std::cout << "Depth set" << std::endl;
+    std::cout << "Depth set" << std::endl;
 }
 
 void Submarine::setDirection(float chosenHeading)
@@ -361,7 +362,7 @@ LegislativeBranch::LegislativeBranch()
     
 int LegislativeBranch::voteOnBill()
 {
-     std::cout << "Voting on bill" << std::endl;
+    std::cout << "Voting on bill" << std::endl;
     return currentBill;
 }
 
@@ -399,13 +400,13 @@ JudicialBranch::JudicialBranch()
 
 bool JudicialBranch::judgeCase()
 {
-     std::cout << "Judging case" << std::endl;
+    std::cout << "Judging case" << std::endl;
     return true;
 }
 
 void JudicialBranch::remandCase()
 {
-     std::cout << "Remanding case" << std::endl;
+    std::cout << "Remanding case" << std::endl;
     currentCaseNumber = nextCaseNumber;
 }
 
@@ -585,7 +586,7 @@ int main()
     
     std::cout << "Army bullet count:" << army.numBullets << std::endl;
 
-      std::cout << "Battle tank bullet count:" << bt.bulletSupply << std::endl;
+    std::cout << "Battle tank bullet count:" << bt.bulletSupply << std::endl;
     
     std::cout << "good to go!" << std::endl;
 }
