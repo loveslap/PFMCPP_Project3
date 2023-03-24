@@ -44,7 +44,7 @@ int main()
 struct VendingMachine
 {
 
-    int numCokes = 33;
+    int numCokes;
     int numMountainDews = 14;
     int numQuarters = 44;
     int numDimes = 22;
@@ -56,9 +56,10 @@ struct VendingMachine
     void makeChange(int sodaCode, int payment);
     void displayPrice(int sodaCode);
 };
-VendingMachine::VendingMachine()
+VendingMachine::VendingMachine() : numCokes(42)
 {
     std::cout << "VendingMachine being constructed!" << std::endl;
+    std::cout << numCokes << " Cokes and " << numMountainDews << " Mountain Dews" << std::endl;
 }
 void VendingMachine::deliverSoda( int sodaCode) 
 {
@@ -89,7 +90,7 @@ void VendingMachine::displayPrice(int sodacode)
 struct BattleTank
 {
     float fuelSupply = 0.833f;
-    int bulletSupply = 3553;
+    int bulletSupply;
     float turretAngle = 0.223f;
     int grenadeSupply = 23;
     int numOperators = 3;
@@ -101,9 +102,11 @@ struct BattleTank
     bool launchGrenades(int numGrenades);
 };
 
-BattleTank::BattleTank()
+BattleTank::BattleTank() : bulletSupply(35)
 {
-    std::cout << "BattleTank being constructed!" << std::endl;  
+    std::cout << "BattleTank being constructed!" << std::endl;
+    std::cout << "Fuel Supply: " << fuelSupply << std::endl;
+    std::cout << "Bullet Supply: " << bulletSupply << std::endl;
 }
 
 void BattleTank::aimTurret( float angle )
@@ -137,8 +140,8 @@ struct DigitalCamera
     float lightLevel = 2.455f;
     int availableStorage = 234235;
     float zoomDegree = 2.5334f;
-    int horizontalResolution = 1024;
-    int verticalResolution = 768;
+    int horizontalResolution;
+    int verticalResolution;
 
     DigitalCamera();
 
@@ -146,8 +149,8 @@ struct DigitalCamera
     { 
         bool isFull = false;
         bool isLocked = false;
-        std::string cardname = "Untitled";
-        int capacity = 1048576;
+        std::string cardName;
+        int capacity;
         int memoryAddress = 0;
 
         MemoryCard();
@@ -161,14 +164,16 @@ struct DigitalCamera
     void deletePicture(int pictNum, MemoryCard memCard);
 };
 
-DigitalCamera::DigitalCamera()
+DigitalCamera::DigitalCamera() : horizontalResolution(1024), verticalResolution(768)
 {
     std::cout << "Digital Camera being constructed!" << std::endl;
+    std::cout << "Resolution :" << horizontalResolution << "x" << verticalResolution << std::endl;
 }
 
-DigitalCamera::MemoryCard::MemoryCard()
+DigitalCamera::MemoryCard::MemoryCard() : capacity(4340000)
 {
     std::cout << "Digital Camera Memory Card being constructed!" << std::endl;
+    std::cout << "Capacity :" << capacity << std::endl;
 }
 
 bool DigitalCamera::MemoryCard::storePicture(std::string Picture)
@@ -193,9 +198,8 @@ void DigitalCamera::deletePicture(int pictNum, MemoryCard memCard)
 }
 struct Submarine
 {
-
-    float depth = 203.33f;
-    float heading = 0.67f;
+    float depth;
+    float heading;
     float waterPressure = 22.44f;
     int numShipmen = 44;
     int numTorpedos = 55;
@@ -223,9 +227,11 @@ struct Submarine
     void setVelocity(int velocity, Motor theMotor);
 };
 
-Submarine::Submarine()
+Submarine::Submarine() :depth(203.33f), heading(0.67f)
 {
     std::cout << "Submarine being constructed!" << std::endl;
+    std::cout << "Depth: " << depth << std::endl;
+    std::cout << "Heading: " << heading << std::endl;
 }
 
 Submarine::Motor::Motor()
@@ -272,7 +278,7 @@ void Submarine::setVelocity(int velocity, Motor theMotor)
 
 struct ExecutiveBranch 
 {
-    std::string nameOfPresident = "Bob";
+    std::string nameOfPresident;
     int numSecretService = 23;
     std::string locationPresident = "White House";
     int nukeSuitcaseCode = 8675309;
@@ -285,9 +291,11 @@ struct ExecutiveBranch
     void initiateOps(std::string details);
 };
 
-ExecutiveBranch::ExecutiveBranch()
+ExecutiveBranch::ExecutiveBranch() : nameOfPresident("Bob")
 {
     std::cout << "Executive Branch being constructed!" << std::endl; 
+    std::cout << "Name of president: " << nameOfPresident << std::endl;
+    std::cout << "Location of president: " << locationPresident << std::endl;
 }
 
 void ExecutiveBranch::enactExecutiveOrder(int orderNumber, std::string orderText)
@@ -309,8 +317,8 @@ void ExecutiveBranch::initiateOps(std::string details)
 
 struct LegislativeBranch
 {
-    int numLefties = 203;
-    int numRighties = 202;
+    int numLefties;
+    int numRighties;
     int currentBill = 2245;
     int debateHoursRemaining = 4;
     bool inSession = true;
@@ -322,9 +330,11 @@ struct LegislativeBranch
     void tradeStocks();
 };
 
-LegislativeBranch::LegislativeBranch()
+LegislativeBranch::LegislativeBranch() : numLefties(238), numRighties(237)
 {
-    std::cout << "Legislative Branch being constructed!" << std::endl; 
+    std::cout << "Legislative Branch being constructed!" << std::endl;
+    std::cout << "Number of lefties: " << numLefties << std::endl;
+    std::cout << "Number of righties: " << numRighties << std::endl;
 }
     
 int LegislativeBranch::voteOnBill()
@@ -347,7 +357,7 @@ void LegislativeBranch::tradeStocks()
 struct JudicialBranch
 {
 
-    int numCases = 45;
+    int numCases;
     int daysRemainingInSession = 55;
     int currentCaseNumber = 45623;
     int nextCaseNumber = 45636;
@@ -360,9 +370,10 @@ struct JudicialBranch
     void listenToTestimony();
 };
 
-JudicialBranch::JudicialBranch()
+JudicialBranch::JudicialBranch() : numCases(45)
 {
     std::cout << "Judicial Branch being constructed!" << std::endl; 
+    std::cout << "Number of cases: " << numCases << std::endl;  
 }
 
 bool JudicialBranch::judgeCase()
@@ -385,7 +396,7 @@ void JudicialBranch::listenToTestimony()
 struct Army
 {
     int numOfficers = 4435;
-    int numSoldiers = 434534;
+    int numSoldiers;
     float soldierMorale = 0.8873f;
     int numTanks = 3345;
     int numBullets = 3453453;
@@ -395,13 +406,19 @@ struct Army
     void developPlans(std::string enemy);
     void invadeCountry(std::string country);
     void cleanBarracks();
+    void displayPersonel();
 };
 
-Army::Army()
+Army::Army() : numSoldiers(234520)
 {
-    std::cout << "Army being constructed!" << std::endl; 
+    std::cout << "Army being constructed!" << std::endl;
 }
 
+void Army::displayPersonel()
+{
+    std::cout << "Number of soldiers: " << numSoldiers << std::endl;
+    std::cout << "Number of officers: " << numOfficers << std::endl;
+}
 void Army::developPlans(std::string enemy)
 {
     std::cout << "plans developed against";
@@ -425,20 +442,25 @@ struct DeepState
     int numEmbeddedJournalists = 245;
     float percentageComprimisedPoliticians = 33.65f;
     std::string secretCodeword = "Smurf";
-    int sacredNumber = 88;
+    int sacredNumber;
 
     DeepState();
 
     void coerceLegislators();
     void designNarrative();
     void suppressInformation();
+    void displaySacredNumber();
 };
 
-DeepState::DeepState()
+DeepState::DeepState() : sacredNumber(88)
 {
     std::cout << "Deep State being constructed!" << std::endl; 
 }
 
+void DeepState::displaySacredNumber()
+{
+    std::cout << "Sacred Number: " << sacredNumber << std::endl;
+}
 void DeepState::coerceLegislators()
 {
     std::cout << "coerced legislators" << std::endl;
@@ -539,11 +561,13 @@ int main()
     army.developPlans("antivaxers");
     army.invadeCountry("Vietnam");
     army.cleanBarracks();
+    army.displayPersonel();
 
     DeepState deepState;
     deepState.coerceLegislators();
     deepState.designNarrative();
     deepState.suppressInformation();
+    deepState.displaySacredNumber();
 
     Government government;
     government.goToWar("Portugal");
