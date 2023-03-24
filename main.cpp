@@ -83,19 +83,41 @@ struct VendingMachine
     int numDimes = 22;
     int numNickels = 3;
 
+    VendingMachine();
+
     void deliverSoda(int sodaCode);
     void makeChange(int sodaCode, int payment);
     void displayPrice(int sodaCode);
 };
-
+VendingMachine::VendingMachine()
+{
+    std::cout << "VendingMachine being constructed!" << std::endl;
+}
 void VendingMachine::deliverSoda( int sodaCode) 
 {
-    if (sodaCode == 1) 
+    if (sodaCode == 1)
+    {
         --numCokes;
+        std::cout << "Delivering Coke" << std::endl;
+    }
     else
+    {
         --numMountainDews;    
+        std::cout << "Delivering Mountain Dew" << std::endl;
+    }
 }
 
+void VendingMachine::makeChange(int sodaCode, int payment)
+{
+    std::cout << "Sodacode:" << sodaCode << std::endl;
+    std::cout << "Change:" << 1.5 - payment << std::endl;
+}
+
+void VendingMachine::displayPrice(int sodacode)
+{
+    std::cout << "Sodacode:" << sodacode << "Price: ";
+    std::cout << 1.5  << std::endl;
+}
 
 struct BattleTank
 {
@@ -105,20 +127,29 @@ struct BattleTank
     int grenadeSupply = 23;
     int numOperators = 3;
 
+    BattleTank();
+
     void aimTurret(float angle);
-    bool firebullets(int numBullets);
+    bool fireBullets(int numBullets);
     bool launchGrenades(int numGrenades);
 };
+
+BattleTank::BattleTank()
+{
+    std::cout << "BattleTank being constructed!" << std::endl;  
+}
 
 void BattleTank::aimTurret( float angle )
 {
     turretAngle = angle;
+     std::cout << "Aiming Turret" << std::endl;
 }
-bool BattleTank::firebullets( int numBullets )
+bool BattleTank::fireBullets( int numBullets )
 {
     if (numBullets < bulletSupply)  
     {
         bulletSupply -= numBullets;
+        std::cout << "Firing Bullets" << std::endl;
         return true;
     }
     return false;
@@ -142,6 +173,8 @@ struct DigitalCamera
     int horizontalResolution = 1024;
     int verticalResolution = 768;
 
+    DigitalCamera();
+
     struct MemoryCard
     { 
         bool isFull = false;
@@ -149,6 +182,8 @@ struct DigitalCamera
         std::string cardname = "Untitled";
         int capacity = 1048576;
         int memoryAddress = 0;
+
+        MemoryCard();
 
         bool storePicture(std::string Picture);
         void setLock(bool lock);
@@ -158,11 +193,24 @@ struct DigitalCamera
     void setZoom(float degree);
     void deletePicture(int pictNum, MemoryCard memCard);
 };
+
+DigitalCamera::DigitalCamera()
+{
+    std::cout << "Digital Camera being constructed!" << std::endl;
+}
+
+DigitalCamera::MemoryCard::MemoryCard()
+{
+    std::cout << "Digital Camera Memory Card being constructed!" << std::endl;
+}
+
 bool DigitalCamera::MemoryCard::storePicture(std::string Picture)
 {
     if (Picture != "")
+    {
+        std::cout << "Storing picture" << std::endl;
         return true;
-    
+    }
     return false;
 }
 void DigitalCamera::setZoom( float degree )
@@ -174,6 +222,7 @@ void DigitalCamera::deletePicture(int pictNum, MemoryCard memCard)
 {
     memCard.memoryAddress = pictNum * 1024;
     memCard.storePicture("BLANK");
+    std::cout << "Deleting picture" << std::endl;
 }
 struct Submarine
 {
@@ -184,6 +233,8 @@ struct Submarine
     int numShipmen = 44;
     int numTorpedos = 55;
 
+    Submarine();
+
     struct Motor 
     { 
         std::string manufacturer = "RollsRoyce";
@@ -191,6 +242,8 @@ struct Submarine
         int rpm = 0;
         bool isReady = true;
         int voltage = 220;
+
+        Motor();
 
         void goOnline();
         void goOffline();
@@ -203,14 +256,25 @@ struct Submarine
     void setVelocity(int velocity, Motor theMotor);
 };
 
+Submarine::Submarine()
+{
+    std::cout << "Submarine being constructed!" << std::endl;
+}
+
+Submarine::Motor::Motor()
+{
+    std::cout << "Submarine Motor being constructed!" << std::endl;
+}
 void Submarine::setDepth(float chosenDepth)
 {
     depth = chosenDepth;
+    std::cout << "Depth set" << std::endl;
 }
 
 void Submarine::setDirection(float chosenHeading)
 {
     heading = chosenHeading;
+     std::cout << "Direction set" << std::endl;
 }
 
 bool Submarine::fireTorpedo()
@@ -246,26 +310,34 @@ struct ExecutiveBranch
     std::string locationPresident = "White House";
     int nukeSuitcaseCode = 8675309;
     int daysRemainingInOffice = 245;
+
+    ExecutiveBranch();
+
     void enactExecutiveOrder(int orderNumber, std::string orderText);
     void giveSpeech(std::string speechText);
-    void initiateOps(std::string  details);
+    void initiateOps(std::string details);
 };
+
+ExecutiveBranch::ExecutiveBranch()
+{
+    std::cout << "Executive Branch being constructed!" << std::endl; 
+}
 
 void ExecutiveBranch::enactExecutiveOrder(int orderNumber, std::string orderText)
 {
 
-    std::cout << orderNumber;
-    std::cout << orderText;
+    std::cout << orderNumber << std::endl;
+    std::cout << orderText << std::endl;
 }
 
 void ExecutiveBranch::giveSpeech(std::string speechText)
 {
-    std::cout << speechText;
+    std::cout << speechText << std::endl;
 }
 
-void initiateOps(std::string details)
+void ExecutiveBranch::initiateOps(std::string details)
 {
-    std::cout << details;
+    std::cout << details << std::endl;
 }
 
 struct LegislativeBranch
@@ -275,24 +347,34 @@ struct LegislativeBranch
     int currentBill = 2245;
     int debateHoursRemaining = 4;
     bool inSession = true;
+
+    LegislativeBranch();
+
     int voteOnBill(); 
     void debateBill();
     void tradeStocks();
 };
 
+LegislativeBranch::LegislativeBranch()
+{
+    std::cout << "Legislative Branch being constructed!" << std::endl; 
+}
+    
 int LegislativeBranch::voteOnBill()
 {
+    std::cout << "Voting on bill" << std::endl;
     return currentBill;
 }
 
 void LegislativeBranch::debateBill()
 {
+     std::cout << "Debating bill" << std::endl;
    --debateHoursRemaining;
 }
 
-void tradeStocks()
+void LegislativeBranch::tradeStocks()
 {
-    std::cout << "WINNING";
+    std::cout << "WINNING" << std::endl;
 }
 
 struct JudicialBranch
@@ -303,24 +385,34 @@ struct JudicialBranch
     int currentCaseNumber = 45623;
     int nextCaseNumber = 45636;
     bool inSession = true;
+
+    JudicialBranch();
+
     bool judgeCase(); 
     void remandCase();
     void listenToTestimony();
 };
 
+JudicialBranch::JudicialBranch()
+{
+    std::cout << "Judicial Branch being constructed!" << std::endl; 
+}
+
 bool JudicialBranch::judgeCase()
 {
+    std::cout << "Judging case" << std::endl;
     return true;
 }
 
 void JudicialBranch::remandCase()
 {
+    std::cout << "Remanding case" << std::endl;
     currentCaseNumber = nextCaseNumber;
 }
 
 void JudicialBranch::listenToTestimony()
 {
-    std::cout << "Listened to testimony";
+    std::cout << "Listened to testimony" << std::endl;
 }
 
 struct Army
@@ -330,21 +422,29 @@ struct Army
     float soldierMorale = 0.8873f;
     int numTanks = 3345;
     int numBullets = 3453453;
+
+    Army();
+
     void developPlans(std::string enemy);
     void invadeCountry(std::string country);
     void cleanBarracks();
 };
 
+Army::Army()
+{
+    std::cout << "Army being constructed!" << std::endl; 
+}
+
 void Army::developPlans(std::string enemy)
 {
     std::cout << "plans developed against";
-    std::cout << enemy;
+    std::cout << enemy << std::endl;
 }
 
 void Army::invadeCountry(std::string country)
 {
     std::cout << "invading:";
-    std::cout << country;
+    std::cout << country << std::endl;
 }
 
 void Army::cleanBarracks()
@@ -359,24 +459,32 @@ struct DeepState
     float percentageComprimisedPoliticians = 33.65f;
     std::string secretCodeword = "Smurf";
     int sacredNumber = 88;
+
+    DeepState();
+
     void coerceLegislators();
     void designNarrative();
     void suppressInformation();
 };
 
+DeepState::DeepState()
+{
+    std::cout << "Deep State being constructed!" << std::endl; 
+}
+
 void DeepState::coerceLegislators()
 {
-    std::cout << "coerced legislators";
+    std::cout << "coerced legislators" << std::endl;
 }
 
 void DeepState::designNarrative()
 {
-    std::cout << "Narrative designed";
+    std::cout << "Narrative designed" << std::endl;
 }
 
 void DeepState::suppressInformation()
 {
-    std::cout << "Information suppressed";
+    std::cout << "Information suppressed" << std::endl;
 }
 
 struct Government
@@ -387,10 +495,18 @@ struct Government
     JudicialBranch judBranch;
     Army army;
     DeepState deepState;
+
+    Government();
+
     void goToWar(std::string enemy);
     void levyTax(int amount);
     void propagandizeCitizens(std::string narrative);
 };
+
+Government::Government()
+{
+    std::cout << "Government being constructed!" << std::endl; 
+}
 
 void Government::goToWar(std::string enemy)
 {
@@ -403,18 +519,74 @@ void Government::levyTax(int amount)
 {
     deepState.designNarrative();
     std::cout << "Tax levied: ";
-    std::cout << amount;
+    std::cout << amount << std::endl;
 }
 
 void Government::propagandizeCitizens(std::string narrative)
 {
-    std::cout << narrative;
+    std::cout << narrative << std::endl;
 }
 
 int main()
 {
     Example::main();
     
+    VendingMachine vm;
+    vm.deliverSoda(1);
+    vm.makeChange(1,4);
+    vm.displayPrice(1);
+
+    BattleTank bt;
+    bt.aimTurret(1.05f);
+    bt.fireBullets(33);
+    bt.launchGrenades(3);
+
+    DigitalCamera dc;
+    DigitalCamera::MemoryCard mc;
+    dc.setZoom(88.32f);
+    dc.deletePicture(6, mc);
+
+    Submarine sub;
+    Submarine::Motor subMotor;
+    sub.setDepth(99.4f);
+    sub.setDirection(45.25);
+    sub.fireTorpedo();
+    sub.setVelocity(5, subMotor);
+
+    ExecutiveBranch eb;
+    eb.enactExecutiveOrder(56, "Release the hounds");
+    eb.giveSpeech("Now is the time");
+    eb.initiateOps("go spy now");
+
+    LegislativeBranch lb;
+    lb.voteOnBill();
+    lb.debateBill();
+    lb.tradeStocks();
+
+    JudicialBranch jb;
+    jb.judgeCase();
+    jb.remandCase();
+    jb.listenToTestimony();
+    
+    Army army;
+    army.developPlans("antivaxers");
+    army.invadeCountry("Vietnam");
+    army.cleanBarracks();
+
+    DeepState deepState;
+    deepState.coerceLegislators();
+    deepState.designNarrative();
+    deepState.suppressInformation();
+
+    Government government;
+    government.goToWar("Portugal");
+    government.levyTax(1000000000);
+    government.propagandizeCitizens("Obey");
+    
+    
+    std::cout << "Army bullet count:" << army.numBullets << std::endl;
+
+    std::cout << "Battle tank bullet count:" << bt.bulletSupply << std::endl;
     
     std::cout << "good to go!" << std::endl;
 }
