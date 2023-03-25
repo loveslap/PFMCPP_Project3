@@ -86,12 +86,24 @@ struct VendingMachine
     void deliverSoda(int sodaCode);
     void makeChange(int sodaCode, int payment);
     void displayPrice(int sodaCode);
+    void loadCokes(int howMany);
 };
+
+
 VendingMachine::VendingMachine() : numCokes(42)
 {
     std::cout << "VendingMachine being constructed!" << std::endl;
     std::cout << numCokes << " Cokes and " << numMountainDews << " Mountain Dews" << std::endl;
 }
+
+void VendingMachine::loadCokes(int howMany)
+{
+    for (int i=0; i<howMany; ++i)
+        {
+            std::cout << "now have " << ++numCokes << " cokes \n";
+        }
+}
+
 void VendingMachine::deliverSoda( int sodaCode) 
 {
     if (sodaCode == 1)
@@ -131,6 +143,7 @@ struct BattleTank
     void aimTurret(float angle);
     bool fireBullets(int numBullets);
     bool launchGrenades(int numGrenades);
+    void fireAllGrenades();
 };
 
 BattleTank::BattleTank() : bulletSupply(35)
@@ -140,6 +153,13 @@ BattleTank::BattleTank() : bulletSupply(35)
     std::cout << "Bullet Supply: " << bulletSupply << std::endl;
 }
 
+void BattleTank::fireAllGrenades()
+{
+    while (grenadeSupply > 0)
+        {
+            std::cout << --grenadeSupply << " grenades left\n";
+        }
+}
 void BattleTank::aimTurret( float angle )
 {
     turretAngle = angle;
@@ -193,6 +213,7 @@ struct DigitalCamera
     };
     void setZoom(float degree);
     void deletePicture(int pictNum, MemoryCard memCard);
+    void gradualDezoom();
 };
 
 DigitalCamera::DigitalCamera() : horizontalResolution(1024), verticalResolution(768)
@@ -201,6 +222,14 @@ DigitalCamera::DigitalCamera() : horizontalResolution(1024), verticalResolution(
     std::cout << "Resolution :" << horizontalResolution << "x" << verticalResolution << std::endl;
 }
 
+void DigitalCamera::gradualDezoom()
+{
+    while (zoomDegree > 0.001f) 
+        {
+            zoomDegree*= .7f;
+            std::cout << "zoom degree: " << zoomDegree << std::endl;
+        }
+}
 DigitalCamera::MemoryCard::MemoryCard() : capacity(4340000)
 {
     std::cout << "Digital Camera Memory Card being constructed!" << std::endl;
@@ -256,6 +285,7 @@ struct Submarine
     void setDirection(float chosenHeading);
     bool fireTorpedo();
     void setVelocity(int velocity, Motor theMotor);
+    void surface();
 };
 
 Submarine::Submarine() :depth(203.33f), heading(0.67f)
@@ -268,6 +298,16 @@ Submarine::Submarine() :depth(203.33f), heading(0.67f)
 Submarine::Motor::Motor()
 {
     std::cout << "Submarine Motor being constructed!" << std::endl;
+}
+
+void Submarine::surface()
+{
+    std::cout << "Surfacing...\n";
+    while (depth > 0)
+        {
+            --depth;
+            std::cout << "depth: " << depth << std::endl;
+        }
 }
 void Submarine::setDepth(float chosenDepth)
 {
@@ -320,6 +360,7 @@ struct ExecutiveBranch
     void enactExecutiveOrder(int orderNumber, std::string orderText);
     void giveSpeech(std::string speechText);
     void initiateOps(std::string details);
+    void countSecretService();
 };
 
 ExecutiveBranch::ExecutiveBranch() : nameOfPresident("Bob")
@@ -329,6 +370,16 @@ ExecutiveBranch::ExecutiveBranch() : nameOfPresident("Bob")
     std::cout << "Location of president: " << locationPresident << std::endl;
 }
 
+void ExecutiveBranch::countSecretService()
+{
+    int i=0;
+    while (i < numSecretService) 
+        {
+            ++i;
+            std::cout << i << " Secret Service" 
+                << std::endl;
+        }
+}
 void ExecutiveBranch::enactExecutiveOrder(int orderNumber, std::string orderText)
 {
 
@@ -359,6 +410,7 @@ struct LegislativeBranch
     int voteOnBill(); 
     void debateBill();
     void tradeStocks();
+    void finishDebate();
 };
 
 LegislativeBranch::LegislativeBranch() : numLefties(238), numRighties(237)
@@ -367,7 +419,16 @@ LegislativeBranch::LegislativeBranch() : numLefties(238), numRighties(237)
     std::cout << "Number of lefties: " << numLefties << std::endl;
     std::cout << "Number of righties: " << numRighties << std::endl;
 }
-    
+
+void LegislativeBranch::finishDebate()
+{
+    while (debateHoursRemaining > 0)
+        {
+            std::cout << debateHoursRemaining << " hours of debate remaining" << std::endl;
+            --debateHoursRemaining;
+            
+        }
+}
 int LegislativeBranch::voteOnBill()
 {
     std::cout << "Voting on bill" << std::endl;
@@ -399,6 +460,7 @@ struct JudicialBranch
     bool judgeCase(); 
     void remandCase();
     void listenToTestimony();
+    void finishSession();
 };
 
 JudicialBranch::JudicialBranch() : numCases(45)
@@ -407,6 +469,14 @@ JudicialBranch::JudicialBranch() : numCases(45)
     std::cout << "Number of cases: " << numCases << std::endl;  
 }
 
+void JudicialBranch::finishSession()
+{
+    while (--daysRemainingInSession >0)
+        {
+            std::cout << daysRemainingInSession << " days remaining in session\n";
+        }
+    daysRemainingInSession = 0;
+}
 bool JudicialBranch::judgeCase()
 {
     std::cout << "Judging case" << std::endl;
@@ -438,11 +508,21 @@ struct Army
     void invadeCountry(std::string country);
     void cleanBarracks();
     void displayPersonel();
+    void recruitSoldiers(int quota);
 };
 
 Army::Army() : numSoldiers(234520)
 {
     std::cout << "Army being constructed!" << std::endl;
+}
+
+void Army::recruitSoldiers(int quota)
+{
+    for (int i=0; i<quota; ++i)
+        {
+            ++numSoldiers;
+            std::cout << "We now have " << numSoldiers << " soldiers!\n";
+        }
 }
 
 void Army::displayPersonel()
@@ -481,6 +561,7 @@ struct DeepState
     void designNarrative();
     void suppressInformation();
     void displaySacredNumber();
+    void getMoreJournos(int howMany);
 };
 
 DeepState::DeepState() : sacredNumber(88)
@@ -488,6 +569,14 @@ DeepState::DeepState() : sacredNumber(88)
     std::cout << "Deep State being constructed!" << std::endl; 
 }
 
+void DeepState::getMoreJournos(int howMany)
+{
+    for (int i=0; i<howMany; ++i)
+        {
+            ++numEmbeddedJournalists;
+            std::cout << "Now have " << numEmbeddedJournalists << " embedded journalists\n";
+        }
+}
 void DeepState::displaySacredNumber()
 {
     std::cout << "Sacred Number: " << sacredNumber << std::endl;
@@ -611,4 +700,17 @@ int main()
     std::cout << "Battle tank bullet count:" << bt.bulletSupply << std::endl;
     
     std::cout << "good to go!" << std::endl;
+
+
+    vm.loadCokes(5);
+    bt.fireAllGrenades();
+    dc.gradualDezoom();
+    sub.surface();
+    eb.countSecretService();
+    lb.finishDebate();
+    std::cout << lb.debateHoursRemaining << " hours of debate remaining\n";
+    jb.finishSession();
+    army.recruitSoldiers(56);
+    deepState.getMoreJournos(54);
 }
+
