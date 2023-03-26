@@ -437,8 +437,8 @@ int LegislativeBranch::voteOnBill()
 
 void LegislativeBranch::debateBill()
 {
-     std::cout << "Debating bill" << std::endl;
-   --debateHoursRemaining;
+    std::cout << "Debating bill" << std::endl;
+    --debateHoursRemaining;
 }
 
 void LegislativeBranch::tradeStocks()
