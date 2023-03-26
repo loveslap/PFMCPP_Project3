@@ -99,9 +99,9 @@ VendingMachine::VendingMachine() : numCokes(42)
 void VendingMachine::loadCokes(int howMany)
 {
     for (int i=0; i<howMany; ++i)
-        {
-            std::cout << "now have " << ++numCokes << " cokes \n";
-        }
+    {
+        std::cout << "now have " << ++numCokes << " cokes \n";
+    }
 }
 
 void VendingMachine::deliverSoda( int sodaCode) 
@@ -156,14 +156,14 @@ BattleTank::BattleTank() : bulletSupply(35)
 void BattleTank::fireAllGrenades()
 {
     while (grenadeSupply > 0)
-        {
-            std::cout << --grenadeSupply << " grenades left\n";
-        }
+    {
+        std::cout << --grenadeSupply << " grenades left\n";
+    }
 }
 void BattleTank::aimTurret( float angle )
 {
     turretAngle = angle;
-     std::cout << "Aiming Turret" << std::endl;
+    std::cout << "Aiming Turret" << std::endl;
 }
 bool BattleTank::fireBullets( int numBullets )
 {
@@ -225,10 +225,10 @@ DigitalCamera::DigitalCamera() : horizontalResolution(1024), verticalResolution(
 void DigitalCamera::gradualDezoom()
 {
     while (zoomDegree > 0.001f) 
-        {
-            zoomDegree*= .7f;
-            std::cout << "zoom degree: " << zoomDegree << std::endl;
-        }
+    {
+        zoomDegree*= .7f;
+        std::cout << "zoom degree: " << zoomDegree << std::endl;
+    }
 }
 DigitalCamera::MemoryCard::MemoryCard() : capacity(4340000)
 {
@@ -304,10 +304,10 @@ void Submarine::surface()
 {
     std::cout << "Surfacing...\n";
     while (depth > 0)
-        {
-            --depth;
-            std::cout << "depth: " << depth << std::endl;
-        }
+    {
+        --depth;
+        std::cout << "depth: " << depth << std::endl;
+    }
 }
 void Submarine::setDepth(float chosenDepth)
 {
@@ -318,7 +318,7 @@ void Submarine::setDepth(float chosenDepth)
 void Submarine::setDirection(float chosenHeading)
 {
     heading = chosenHeading;
-     std::cout << "Direction set" << std::endl;
+    std::cout << "Direction set" << std::endl;
 }
 
 bool Submarine::fireTorpedo()
@@ -437,8 +437,8 @@ int LegislativeBranch::voteOnBill()
 
 void LegislativeBranch::debateBill()
 {
-     std::cout << "Debating bill" << std::endl;
-   --debateHoursRemaining;
+    std::cout << "Debating bill" << std::endl;
+    --debateHoursRemaining;
 }
 
 void LegislativeBranch::tradeStocks()
@@ -472,9 +472,9 @@ JudicialBranch::JudicialBranch() : numCases(45)
 void JudicialBranch::finishSession()
 {
     while (--daysRemainingInSession >0)
-        {
-            std::cout << daysRemainingInSession << " days remaining in session\n";
-        }
+    {
+        std::cout << daysRemainingInSession << " days remaining in session\n";
+    }
     daysRemainingInSession = 0;
 }
 bool JudicialBranch::judgeCase()
@@ -572,10 +572,10 @@ DeepState::DeepState() : sacredNumber(88)
 void DeepState::getMoreJournos(int howMany)
 {
     for (int i=0; i<howMany; ++i)
-        {
-            ++numEmbeddedJournalists;
-            std::cout << "Now have " << numEmbeddedJournalists << " embedded journalists\n";
-        }
+    {
+        ++numEmbeddedJournalists;
+        std::cout << "Now have " << numEmbeddedJournalists << " embedded journalists\n";
+    }
 }
 void DeepState::displaySacredNumber()
 {
