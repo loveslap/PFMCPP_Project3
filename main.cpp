@@ -98,7 +98,7 @@ VendingMachine::VendingMachine() : numCokes(42)
 
 void VendingMachine::loadCokes(int howMany)
 {
-    for (int i=0; i<howMany; ++i)
+    for (int i = 0; i < howMany; ++i)
     {
         std::cout << "now have " << ++numCokes << " cokes \n";
     }
@@ -226,7 +226,7 @@ void DigitalCamera::gradualDezoom()
 {
     while (zoomDegree > 0.001f) 
     {
-        zoomDegree*= .7f;
+        zoomDegree *= .7f;
         std::cout << "zoom degree: " << zoomDegree << std::endl;
     }
 }
@@ -372,7 +372,7 @@ ExecutiveBranch::ExecutiveBranch() : nameOfPresident("Bob")
 
 void ExecutiveBranch::countSecretService()
 {
-    int i=0;
+    int i = 0;
     while (i < numSecretService) 
     {
         ++i;
@@ -470,7 +470,7 @@ JudicialBranch::JudicialBranch() : numCases(45)
 
 void JudicialBranch::finishSession()
 {
-    while (--daysRemainingInSession >0)
+    while (--daysRemainingInSession > 0)
     {
         std::cout << daysRemainingInSession << " days remaining in session\n";
     }
@@ -517,7 +517,7 @@ Army::Army() : numSoldiers(234520)
 
 void Army::recruitSoldiers(int quota)
 {
-    for (int i=0; i<quota; ++i)
+    for (int i = 0; i < quota; ++i)
     {
         ++numSoldiers;
         std::cout << "We now have " << numSoldiers << " soldiers!\n";
@@ -570,7 +570,7 @@ DeepState::DeepState() : sacredNumber(88)
 
 void DeepState::getMoreJournos(int howMany)
 {
-    for (int i=0; i<howMany; ++i)
+    for (int i = 0; i < howMany; ++i)
     {
         ++numEmbeddedJournalists;
         std::cout << "Now have " << numEmbeddedJournalists << " embedded journalists\n";
